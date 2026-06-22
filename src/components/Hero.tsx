@@ -103,27 +103,6 @@ export default async function Hero() {
         </div>
       </div>
 
-      {/* Stats strip */}
-      <div
-        className="absolute bottom-20 left-0 right-0 z-10 flex justify-center"
-        aria-hidden="true"
-        style={{ animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both', animationDelay: '0.68s' }}
-      >
-        <div className="flex items-center gap-10 sm:gap-16">
-          {[
-            { num: '14+', label: 'thương hiệu' },
-            { num: '9',   label: 'quốc gia' },
-            { num: '4',   label: 'châu lục' },
-            { num: '15+', label: 'năm hoạt động' },
-          ].map(({ num, label }) => (
-            <div key={label} className="flex flex-col items-center gap-1">
-              <span className="font-mono text-[20px] font-medium text-white/80">{num}</span>
-              <span className="font-mono text-[9.5px] tracking-[0.14em] uppercase" style={{ color: 'rgba(255,255,255,0.28)' }}>{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Scroll cue */}
       <div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
