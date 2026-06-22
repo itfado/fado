@@ -1,6 +1,8 @@
 import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
 import { brands, segments } from '@/data/brands'
+import { BrandGrid, BrandItem } from './BrandCardGrid'
+import EcosystemProgress from './EcosystemProgress'
 
 const countryKeyMap: Record<string, 'countryVN' | 'countryAU'> = {
   vn: 'countryVN',
@@ -14,6 +16,7 @@ export default async function Ecosystem() {
 
   return (
     <section id="ecosystem" style={{ padding: '120px 24px' }}>
+      <EcosystemProgress />
       {/* Section header */}
       <div className="max-w-container mx-auto mb-16">
         <FadeIn>
@@ -45,6 +48,7 @@ export default async function Ecosystem() {
           return (
             <FadeIn key={seg.index} delay={si * 0.07}>
               <article
+                id={`seg-${seg.index}`}
                 className="rounded-[18px] overflow-hidden border border-line bg-bg-elevated"
                 style={{ borderLeft: `2px solid ${accent}22` }}
               >
@@ -66,10 +70,10 @@ export default async function Ecosystem() {
                   </div>
                 </header>
 
-                {/* Brand cards */}
-                <ul className="grid gap-px p-px" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))' }}>
+                {/* Brand cards — stagger in when segment enters viewport */}
+                <BrandGrid>
                   {segBrands.map((brand) => (
-                    <li key={brand.slug}>
+                    <BrandItem key={brand.slug}>
                       {brand.url !== '#' ? (
                         <a
                           href={brand.url}
@@ -112,9 +116,9 @@ export default async function Ecosystem() {
                           </span>
                         </div>
                       )}
-                    </li>
+                    </BrandItem>
                   ))}
-                </ul>
+                </BrandGrid>
               </article>
             </FadeIn>
           )
