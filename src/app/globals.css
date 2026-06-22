@@ -64,6 +64,17 @@ img {
   }
 }
 
+/* Hero entrance — expo-out easing, signature of premium sites */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 @keyframes cueDrop {
   0% { top: -100%; }
   60% { top: 100%; }

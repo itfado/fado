@@ -33,33 +33,60 @@ export default async function Hero() {
 
       <div className="relative z-10 max-w-[920px] mx-auto">
         {/* Label */}
-        <div className="inline-flex items-center gap-2 mb-9">
+        <div
+          className="inline-flex items-center gap-2 mb-9"
+          style={{ animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both', animationDelay: '0.05s' }}
+        >
           <span className="w-1.5 h-1.5 rounded-full bg-white/40 animate-pulse" />
           <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-text-faint">
             {t('label')}
           </p>
         </div>
 
-        {/* Headline */}
+        {/* Headline — each line animates independently */}
         <h1
           className="font-display font-bold leading-[1.06] mb-10"
-          style={{ fontSize: 'clamp(40px, 4.8vw, 66px)', letterSpacing: '-0.025em', overflowWrap: 'break-word', wordBreak: 'keep-all' }}
+          style={{ fontSize: 'clamp(40px, 4.8vw, 66px)', letterSpacing: '-0.025em', wordBreak: 'keep-all' }}
         >
-          {t('headline1')}
-          <br />
-          <span className="italic text-accent">{t('headline2')}</span>
+          <span
+            style={{
+              display: 'block',
+              animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both',
+              animationDelay: '0.18s',
+            }}
+          >
+            {t('headline1')}
+          </span>
+          <span
+            className="italic text-accent"
+            style={{
+              display: 'block',
+              animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both',
+              animationDelay: '0.28s',
+            }}
+          >
+            {t('headline2')}
+          </span>
         </h1>
 
-        {/* Sub — max-w tighter to prevent orphan on last line */}
+        {/* Sub */}
         <p
           className="text-text-muted mx-auto mb-12 leading-[1.75]"
-          style={{ fontSize: 'clamp(15px, 1.6vw, 17px)', maxWidth: '520px' }}
+          style={{
+            fontSize: 'clamp(15px, 1.6vw, 17px)',
+            maxWidth: '520px',
+            animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both',
+            animationDelay: '0.40s',
+          }}
         >
           {t('sub')}
         </p>
 
         {/* CTAs */}
-        <div className="flex gap-3.5 justify-center flex-wrap">
+        <div
+          className="flex gap-3.5 justify-center flex-wrap"
+          style={{ animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both', animationDelay: '0.52s' }}
+        >
           <a
             href="#ecosystem"
             className="inline-flex items-center justify-center bg-accent text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.5)] transition-all duration-200"
@@ -76,19 +103,20 @@ export default async function Hero() {
         </div>
       </div>
 
-      {/* Stats strip — visual anchor, encourages scroll */}
-      <div className="absolute bottom-20 left-0 right-0 z-10 flex justify-center" aria-hidden="true">
+      {/* Stats strip */}
+      <div
+        className="absolute bottom-20 left-0 right-0 z-10 flex justify-center"
+        aria-hidden="true"
+        style={{ animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both', animationDelay: '0.68s' }}
+      >
         <div className="flex items-center gap-10 sm:gap-16">
           {[
             { num: '14+', label: 'thương hiệu' },
             { num: '9',   label: 'quốc gia' },
             { num: '4',   label: 'châu lục' },
             { num: '15+', label: 'năm hoạt động' },
-          ].map(({ num, label }, i) => (
+          ].map(({ num, label }) => (
             <div key={label} className="flex flex-col items-center gap-1">
-              {i > 0 && (
-                <div className="absolute" style={{ left: '-20px', top: '50%', width: 1, height: 24, background: 'rgba(255,255,255,0.08)', transform: 'translateY(-50%)' }} />
-              )}
               <span className="font-mono text-[20px] font-medium text-white/80">{num}</span>
               <span className="font-mono text-[9.5px] tracking-[0.14em] uppercase" style={{ color: 'rgba(255,255,255,0.28)' }}>{label}</span>
             </div>
@@ -100,6 +128,7 @@ export default async function Hero() {
       <div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
         aria-hidden="true"
+        style={{ animation: 'heroFade 1s ease both', animationDelay: '0.9s' }}
       >
         <div className="w-px h-[28px] overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
           <div
