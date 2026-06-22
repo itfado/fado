@@ -49,7 +49,7 @@ export default async function Ecosystem() {
                 style={{ borderLeft: `2px solid ${accent}22` }}
               >
                 {/* Pillar header */}
-                <header className="px-8 pt-8 pb-6 flex gap-5 items-start flex-wrap border-b border-line">
+                <header className="px-5 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 flex gap-4 items-start flex-wrap border-b border-line">
                   <span
                     className="font-mono text-[12px] border rounded-full px-2.5 py-1 flex-shrink-0 mt-0.5 leading-none"
                     style={{ color: accent, borderColor: `${accent}40`, background: `${accent}0d` }}

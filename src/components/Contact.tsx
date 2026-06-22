@@ -40,7 +40,8 @@ export default async function Contact() {
               href="https://fadogroup.com.au"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center border border-line-strong text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:border-accent hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
+              className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 transition-all duration-200"
+              style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.62)' }}
             >
               {t('websiteBtn')}
             </a>

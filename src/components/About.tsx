@@ -47,13 +47,20 @@ export default async function About() {
         </div>
 
         {/* Value cards */}
-        <div className="flex flex-col gap-[18px]">
+        <div className="flex flex-col gap-4">
           {values.map((v, i) => (
             <FadeIn key={v.num} delay={i * 0.08}>
-              <div className="p-[26px_28px] rounded-[16px] bg-bg-elevated border border-line hover:border-accent/40 transition-colors duration-300">
-                <span className="font-mono text-[13px] text-accent">{v.num}</span>
-                <h4 className="font-ui font-semibold text-[16px] mt-2.5 mb-2">{v.title}</h4>
-                <p className="text-[14px] text-text-muted">{v.body}</p>
+              <div className="p-6 rounded-2xl bg-bg-elevated border border-line hover:border-accent/40 transition-colors duration-300">
+                <div className="flex items-center gap-3 mb-3">
+                  <span
+                    className="font-mono text-[11px] font-medium px-2.5 py-1 rounded-full"
+                    style={{ color: '#FF5A1F', background: 'rgba(255,90,31,0.10)', border: '1px solid rgba(255,90,31,0.22)' }}
+                  >
+                    {v.num}
+                  </span>
+                  <h4 className="font-ui font-semibold text-[15px]" style={{ letterSpacing: '-0.01em' }}>{v.title}</h4>
+                </div>
+                <p className="text-[14px] text-text-muted leading-[1.6]">{v.body}</p>
               </div>
             </FadeIn>
           ))}

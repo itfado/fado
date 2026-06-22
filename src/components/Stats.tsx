@@ -50,20 +50,19 @@ export default function Stats() {
 
   return (
     <section className="border-t border-line border-b border-b-line">
-      <div
-        className="max-w-container mx-auto px-7 flex items-center justify-center gap-9 flex-wrap"
-        style={{ padding: '48px 28px' }}
-      >
+      <div className="max-w-container mx-auto grid grid-cols-2 md:grid-cols-4" style={{ padding: '0 24px' }}>
         {stats.map((s, i) => (
-          <>
-            {i > 0 && (
-              <div key={`div-${i}`} className="w-px h-10 bg-line hidden sm:block" aria-hidden="true" />
-            )}
-            <div key={s.labelKey} className="flex flex-col items-center gap-1.5 min-w-[130px]">
-              <CountUp target={s.value} suffix={s.suffix} />
-              <span className="text-[13px] text-text-muted text-center">{t(s.labelKey)}</span>
-            </div>
-          </>
+          <div
+            key={s.labelKey}
+            className="flex flex-col items-center gap-2 py-10 px-4 border-line"
+            style={{
+              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.08)' : undefined,
+              borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.08)' : undefined,
+            }}
+          >
+            <CountUp target={s.value} suffix={s.suffix} />
+            <span className="text-[12px] text-text-muted text-center leading-[1.4]">{t(s.labelKey)}</span>
+          </div>
         ))}
       </div>
     </section>
