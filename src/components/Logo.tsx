@@ -1,5 +1,5 @@
 type LogoProps = {
-  /** Kích thước chữ "FADO" (px). "GROUP" tự co theo tỉ lệ. */
+  /** Kích thước chữ "FADO" (px). */
   size?: number
   /** true: nền tối → chữ trắng (mặc định). false: nền sáng → chữ navy. */
   onDark?: boolean
@@ -7,11 +7,11 @@ type LogoProps = {
 }
 
 /**
- * Wordmark FADO GROUP.
+ * Wordmark FADO.
  * "FADO" — Montserrat 400 (mảnh), giãn chữ rộng (0.177em) là điểm nhận diện chính.
- * "GROUP" — Montserrat 600 (đậm), tương phản nét, đặt cạnh để tạo lockup.
  * Là chữ thật render bằng font (không phải path), nên màu/cỡ/giãn chữ đều
  * chỉnh được trực tiếp và luôn sắc nét ở mọi kích thước.
+ * (Chữ "GROUP" tạm bỏ — chỉ thêm lại khi có yêu cầu.)
  */
 export default function Logo({ size = 18, onDark = true, className }: LogoProps) {
   const ink = onDark ? '#ffffff' : '#0a1f44'
@@ -27,29 +27,14 @@ export default function Logo({ size = 18, onDark = true, className }: LogoProps)
         lineHeight: 1,
         whiteSpace: 'nowrap',
         userSelect: 'none',
+        fontWeight: 400,
+        fontSize: size,
+        letterSpacing: '0.177em',
       }}
-      aria-label="FADO Group"
+      aria-label="FADO"
       role="img"
     >
-      <span
-        style={{
-          fontWeight: 400,
-          fontSize: size,
-          letterSpacing: '0.177em',
-        }}
-      >
-        FADO
-      </span>
-      <span
-        style={{
-          fontWeight: 600,
-          fontSize: size,
-          letterSpacing: '0.06em',
-          marginLeft: '0.42em',
-        }}
-      >
-        GROUP
-      </span>
+      FADO
     </span>
   )
 }
