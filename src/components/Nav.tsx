@@ -47,7 +47,7 @@ export default function Nav() {
           ))}
           <a
             href="#contact"
-            className="bg-white text-black font-semibold px-[18px] py-2 rounded-full hover:bg-white/85 transition-colors duration-200"
+            className="bg-accent text-white font-semibold px-[18px] py-2 rounded-full hover:bg-accent-soft transition-colors duration-200"
           >
             Liên hệ
           </a>

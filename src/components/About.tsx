@@ -25,18 +25,18 @@ export default function About() {
         {/* Text side */}
         <div>
           <FadeIn>
-            <p className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-text-faint mb-3.5">
+            <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-4">
               Về chúng tôi
             </p>
           </FadeIn>
           <FadeIn delay={0.06}>
             <h2
-              className="font-display font-semibold leading-[1.15] mb-[18px]"
-              style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}
+              className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
+              style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
             >
               Một hệ sinh thái,
               <br />
-              được xây từ niềm tin xuyên biên giới.
+              được xây từ <span className="italic text-accent">niềm tin</span> xuyên biên giới.
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
@@ -58,7 +58,7 @@ export default function About() {
           <FadeIn delay={0.24}>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center bg-white text-black font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-8px_rgba(255,255,255,0.25)] transition-all duration-200"
+              className="inline-flex items-center justify-center bg-accent text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.5)] transition-all duration-200"
             >
               Trở thành đối tác
             </a>
@@ -69,8 +69,8 @@ export default function About() {
         <div className="flex flex-col gap-[18px]">
           {values.map((v, i) => (
             <FadeIn key={v.num} delay={i * 0.08}>
-              <div className="p-[26px_28px] rounded-[16px] bg-bg-elevated border border-line">
-                <span className="font-mono text-[13px] text-text-faint">{v.num}</span>
+              <div className="p-[26px_28px] rounded-[16px] bg-bg-elevated border border-line hover:border-accent/40 transition-colors duration-300">
+                <span className="font-mono text-[13px] text-accent">{v.num}</span>
                 <h4 className="font-display font-semibold text-[17px] mt-2.5 mb-2">{v.title}</h4>
                 <p className="text-[14px] text-text-muted">{v.body}</p>
               </div>

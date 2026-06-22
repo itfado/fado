@@ -11,18 +11,18 @@ export default function GlobalPresence() {
       {/* Section header */}
       <div className="max-w-container mx-auto mb-16">
         <FadeIn>
-          <p className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-text-faint mb-3.5">
+          <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-4">
             Hiện diện toàn cầu
           </p>
         </FadeIn>
         <FadeIn delay={0.06}>
           <h2
-            className="font-display font-semibold leading-[1.15] mb-[18px]"
-            style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}
+            className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
           >
             Một chuỗi cung ứng,
             <br />
-            chín quốc gia.
+            <span className="italic text-accent">chín quốc gia.</span>
           </h2>
         </FadeIn>
         <FadeIn delay={0.12}>
@@ -38,7 +38,7 @@ export default function GlobalPresence() {
         <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
           {officeGroups.map((group) => (
             <div key={group.title}>
-              <h4 className="font-mono text-[13px] tracking-[0.08em] uppercase text-text-faint font-medium mb-4">
+              <h4 className="font-mono text-[13px] tracking-[0.08em] uppercase text-accent font-medium mb-4">
                 {group.title}
               </h4>
               <ul>

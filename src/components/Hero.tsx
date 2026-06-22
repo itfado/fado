@@ -8,6 +8,16 @@ export default function Hero() {
     >
       <HeroCanvas />
 
+      {/* Radial ember glow behind hero */}
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255,90,31,0.14), transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+
       {/* Subtle grain overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-0 opacity-40"
@@ -18,22 +28,22 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-[840px] mx-auto">
-        <p className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-text-faint mb-[18px]">
+      <div className="relative z-10 max-w-[920px] mx-auto">
+        <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-7">
           Tập đoàn FADO — Cross&#8209;Border Commerce Ecosystem
         </p>
 
         <h1
-          className="font-display font-semibold leading-[1.05] mb-6"
-          style={{ fontSize: 'clamp(40px, 7vw, 76px)' }}
+          className="font-serif font-medium leading-[1.02] mb-7 tracking-[-0.02em]"
+          style={{ fontSize: 'clamp(48px, 9vw, 104px)' }}
         >
           Kết nối thương mại
           <br />
-          <span className="font-bold">không biên giới.</span>
+          <span className="italic text-accent">không biên giới.</span>
         </h1>
 
         <p
-          className="text-text-muted mx-auto mb-9 max-w-[620px]"
+          className="text-text-muted mx-auto mb-10 max-w-[620px]"
           style={{ fontSize: '18px' }}
         >
           Từ một nền tảng mua hàng quốc tế năm 2011, FADO Group đã mở rộng thành hệ sinh
@@ -44,13 +54,13 @@ export default function Hero() {
         <div className="flex gap-4 justify-center flex-wrap">
           <a
             href="#ecosystem"
-            className="inline-flex items-center justify-center bg-white text-black font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-8px_rgba(255,255,255,0.25)] transition-all duration-200"
+            className="inline-flex items-center justify-center bg-accent text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.5)] transition-all duration-200"
           >
             Khám phá hệ sinh thái
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center border border-line-strong text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:border-text-muted hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-flex items-center justify-center border border-line-strong text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:border-accent hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
           >
             Liên hệ hợp tác
           </a>

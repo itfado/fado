@@ -18,9 +18,9 @@ export default function HeroCanvas() {
     let rafId = 0
 
     const rings = [
-      { base: 90, growth: 170, period: 6000, phase: 0 },
-      { base: 90, growth: 260, period: 6000, phase: 2000 },
-      { base: 90, growth: 340, period: 6000, phase: 4000 },
+      { base: 90, growth: 170, period: 6000, phase: 0, tint: '255,90,31' },
+      { base: 90, growth: 260, period: 6000, phase: 2000, tint: '255,255,255' },
+      { base: 90, growth: 340, period: 6000, phase: 4000, tint: '255,255,255' },
     ]
 
     function resize() {
@@ -71,7 +71,7 @@ export default function HeroCanvas() {
         const opacity = 0.14 * (1 - t)
         ctx!.beginPath()
         ctx!.arc(cx, cy, radius, 0, Math.PI * 2)
-        ctx!.strokeStyle = `rgba(255,255,255,${opacity})`
+        ctx!.strokeStyle = `rgba(${r.tint},${opacity})`
         ctx!.lineWidth = 1
         ctx!.stroke()
       })

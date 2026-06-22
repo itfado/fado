@@ -8,18 +8,18 @@ export default function Ecosystem() {
       {/* Section header */}
       <div className="max-w-container mx-auto mb-16">
         <FadeIn>
-          <p className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-text-faint mb-3.5">
+          <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-4">
             Hệ sinh thái thương hiệu
           </p>
         </FadeIn>
         <FadeIn delay={0.06}>
           <h2
-            className="font-display font-semibold leading-[1.15] mb-[18px]"
-            style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}
+            className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
           >
             Năm mảng kinh doanh,
             <br />
-            một chuỗi giá trị xuyên biên giới.
+            một <span className="italic text-accent">chuỗi giá trị</span> xuyên biên giới.
           </h2>
         </FadeIn>
         <FadeIn delay={0.12}>
@@ -40,7 +40,7 @@ export default function Ecosystem() {
               <article className="bg-bg-elevated hover:bg-bg-card transition-colors duration-300 px-10 pt-10 pb-8 border-b border-line last:border-b-0">
                 {/* Pillar header */}
                 <header className="flex gap-6 items-start mb-7 flex-wrap">
-                  <span className="font-mono text-[13px] text-text-faint border border-line-strong rounded-full px-2.5 py-1 flex-shrink-0 mt-1">
+                  <span className="font-mono text-[13px] text-accent border border-accent/40 rounded-full px-2.5 py-1 flex-shrink-0 mt-1">
                     {seg.index}
                   </span>
                   <div>
@@ -55,9 +55,9 @@ export default function Ecosystem() {
                     <li key={brand.slug}>
                       <Link
                         href={`/thuong-hieu/${brand.slug}`}
-                        className="flex flex-col gap-1.5 p-[18px_20px] rounded-card bg-bg-card border border-line hover:border-line-strong hover:-translate-y-[3px] hover:bg-bg-card-hover transition-all duration-200 block"
+                        className="group flex flex-col gap-1.5 p-[18px_20px] rounded-card bg-bg-card border border-line hover:border-accent/50 hover:-translate-y-[3px] hover:bg-bg-card-hover transition-all duration-200 block"
                       >
-                        <span className="font-display font-semibold text-[15.5px]">{brand.name}</span>
+                        <span className="font-display font-semibold text-[15.5px] group-hover:text-accent transition-colors duration-200">{brand.name}</span>
                         <span className="text-[13px] text-text-muted leading-[1.5]">{brand.description}</span>
                       </Link>
                     </li>

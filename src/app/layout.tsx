@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter, JetBrains_Mono, Montserrat } from 'next/font/google'
+import { Space_Grotesk, Inter, JetBrains_Mono, Montserrat, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -27,6 +27,14 @@ const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '600'],
   variable: '--font-montserrat',
+  display: 'swap',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-playfair',
   display: 'swap',
 })
 
@@ -60,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="vi"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${montserrat.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${montserrat.variable} ${playfair.variable}`}
     >
       <body>{children}</body>
     </html>

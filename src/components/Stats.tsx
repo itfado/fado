@@ -35,10 +35,10 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
   }, [target])
 
   return (
-    <span ref={ref} className="font-mono text-[34px] font-medium text-white">
+    <span ref={ref} className="font-mono text-[38px] font-medium text-white">
       {count}
       {suffix && (
-        <span className="font-mono text-[22px] text-white">{suffix}</span>
+        <span className="font-mono text-[24px] text-accent">{suffix}</span>
       )}
     </span>
   )

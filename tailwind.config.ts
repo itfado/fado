@@ -14,12 +14,16 @@ const config: Config = {
         text: '#ffffff',
         'text-muted': '#a3a3a3',
         'text-faint': '#5c5c5c',
+        // Màu nhấn ember — điểm xuyết, chủ đạo vẫn đen-trắng
+        accent: '#FF5A1F',
+        'accent-soft': '#FF7A47',
       },
       fontFamily: {
         display: ['var(--font-space-grotesk)', 'Inter', 'sans-serif'],
         body: ['var(--font-inter)', 'sans-serif'],
         mono: ['var(--font-jetbrains-mono)', 'monospace'],
         wordmark: ['var(--font-montserrat)', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
       },
       maxWidth: {
         container: '1180px',
