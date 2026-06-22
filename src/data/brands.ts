@@ -21,7 +21,6 @@ export const segments: Segment[] = [
 
 export const brands: Brand[] = [
   { slug: 'fado-vn',           name: 'FADO.VN',           segment: 1, country: 'vn', url: 'https://fado.vn' },
-  { slug: 'fado-express',      name: 'FADO Express',       segment: 1, country: 'vn', url: '#' },
   { slug: 'proship',           name: 'Proship',            segment: 1, country: 'vn', url: 'https://proship.vn' },
   { slug: 'ratraco-solutions', name: 'Ratraco Solutions',  segment: 1, country: 'vn', url: 'https://ratracosolutions.com' },
   { slug: 'fado-solutions',    name: 'FADO Solutions',     segment: 1, country: 'vn', url: 'https://fadosolution.com' },
