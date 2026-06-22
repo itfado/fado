@@ -42,8 +42,8 @@ export default async function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-serif font-medium leading-[1.02] mb-7 tracking-[-0.02em]"
-          style={{ fontSize: 'clamp(48px, 9vw, 104px)' }}
+          className="font-serif font-medium leading-[1.05] mb-7"
+          style={{ fontSize: 'clamp(44px, 6.5vw, 82px)', letterSpacing: '-0.03em', textWrap: 'balance' } as React.CSSProperties}
         >
           {t('headline1')}
           <br />
@@ -52,8 +52,8 @@ export default async function Hero() {
 
         {/* Sub */}
         <p
-          className="text-text-muted mx-auto mb-10 max-w-[640px] leading-[1.7]"
-          style={{ fontSize: 'clamp(16px, 2vw, 18.5px)' }}
+          className="text-text-muted mx-auto mb-10 max-w-[600px] leading-[1.72]"
+          style={{ fontSize: 'clamp(15px, 1.8vw, 17.5px)' }}
         >
           {t('sub')}
         </p>

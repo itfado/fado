@@ -1,9 +1,7 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 :root {
-  --font-space-grotesk: 'Space Grotesk', sans-serif;
-  --font-inter: 'Inter', sans-serif;
-  --font-jetbrains-mono: 'JetBrains Mono', monospace;
   --accent: #FF5A1F;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -45,10 +43,7 @@ ul {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-space-grotesk), sans-serif;
   margin: 0;
-  font-weight: 600;
-  letter-spacing: -0.02em;
 }
 
 p {
@@ -69,14 +64,12 @@ img {
   }
 }
 
-/* Scroll cue animation */
 @keyframes cueDrop {
   0% { top: -100%; }
   60% { top: 100%; }
   100% { top: 100%; }
 }
 
-/* Hero label pulse dot */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
