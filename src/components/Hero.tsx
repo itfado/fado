@@ -33,7 +33,7 @@ export default async function Hero() {
 
       <div className="relative z-10 max-w-[920px] mx-auto">
         {/* Label */}
-        <div className="inline-flex items-center gap-2 mb-6">
+        <div className="inline-flex items-center gap-2 mb-9">
           <span className="w-1.5 h-1.5 rounded-full bg-white/40 animate-pulse" />
           <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-text-faint">
             {t('label')}
@@ -42,7 +42,7 @@ export default async function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-display font-bold leading-[1.06] mb-8"
+          className="font-display font-bold leading-[1.06] mb-10"
           style={{ fontSize: 'clamp(40px, 4.8vw, 66px)', letterSpacing: '-0.025em', overflowWrap: 'break-word', wordBreak: 'keep-all' }}
         >
           {t('headline1')}
@@ -50,10 +50,10 @@ export default async function Hero() {
           <span className="italic text-accent">{t('headline2')}</span>
         </h1>
 
-        {/* Sub */}
+        {/* Sub — max-w tighter to prevent orphan on last line */}
         <p
-          className="text-text-muted mx-auto mb-10 max-w-[640px] leading-[1.75]"
-          style={{ fontSize: 'clamp(15px, 1.6vw, 17px)' }}
+          className="text-text-muted mx-auto mb-12 leading-[1.75]"
+          style={{ fontSize: 'clamp(15px, 1.6vw, 17px)', maxWidth: '520px' }}
         >
           {t('sub')}
         </p>
@@ -68,22 +68,40 @@ export default async function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center border border-line-strong text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:border-accent hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 transition-all duration-200"
+            style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.62)' }}
           >
             {t('cta2')}
           </a>
         </div>
       </div>
 
+      {/* Stats strip — visual anchor, encourages scroll */}
+      <div className="absolute bottom-20 left-0 right-0 z-10 flex justify-center" aria-hidden="true">
+        <div className="flex items-center gap-10 sm:gap-16">
+          {[
+            { num: '14+', label: 'thương hiệu' },
+            { num: '9',   label: 'quốc gia' },
+            { num: '4',   label: 'châu lục' },
+            { num: '15+', label: 'năm hoạt động' },
+          ].map(({ num, label }, i) => (
+            <div key={label} className="flex flex-col items-center gap-1">
+              {i > 0 && (
+                <div className="absolute" style={{ left: '-20px', top: '50%', width: 1, height: 24, background: 'rgba(255,255,255,0.08)', transform: 'translateY(-50%)' }} />
+              )}
+              <span className="font-mono text-[20px] font-medium text-white/80">{num}</span>
+              <span className="font-mono text-[9.5px] tracking-[0.14em] uppercase" style={{ color: 'rgba(255,255,255,0.28)' }}>{label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Scroll cue */}
       <div
-        className="absolute bottom-9 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2.5"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
         aria-hidden="true"
       >
-        <span className="font-mono text-[10.5px] tracking-[0.14em] text-text-faint uppercase">
-          {t('scroll')}
-        </span>
-        <div className="w-px h-[36px] overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+        <div className="w-px h-[28px] overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
           <div
             className="w-full"
             style={{
