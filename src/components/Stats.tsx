@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { stats } from '@/data/stats'
 
 function CountUp({ target, suffix }: { target: number; suffix: string }) {
@@ -45,6 +46,8 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
 }
 
 export default function Stats() {
+  const t = useTranslations('stats')
+
   return (
     <section className="border-t border-line border-b border-b-line">
       <div
@@ -56,9 +59,9 @@ export default function Stats() {
             {i > 0 && (
               <div key={`div-${i}`} className="w-px h-10 bg-line hidden sm:block" aria-hidden="true" />
             )}
-            <div key={s.label} className="flex flex-col items-center gap-1.5 min-w-[130px]">
+            <div key={s.labelKey} className="flex flex-col items-center gap-1.5 min-w-[130px]">
               <CountUp target={s.value} suffix={s.suffix} />
-              <span className="text-[13px] text-text-muted text-center">{s.label}</span>
+              <span className="text-[13px] text-text-muted text-center">{t(s.labelKey)}</span>
             </div>
           </>
         ))}

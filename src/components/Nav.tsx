@@ -1,12 +1,17 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import { useTranslations, useLocale } from 'next-intl'
+import { useRouter, usePathname } from '@/i18n/navigation'
 import Logo from './Logo'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const t = useTranslations('nav')
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -14,10 +19,15 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  function toggleLocale() {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    router.replace(pathname as any, { locale: locale === 'vi' ? 'en' : 'vi' })
+  }
+
   const links = [
-    { href: '#ecosystem', label: 'Hệ sinh thái' },
-    { href: '#global', label: 'Toàn cầu' },
-    { href: '#about', label: 'Về chúng tôi' },
+    { href: '#ecosystem', label: t('ecosystem') },
+    { href: '#global',    label: t('global') },
+    { href: '#about',     label: t('about') },
   ]
 
   return (
@@ -30,12 +40,12 @@ export default function Nav() {
     >
       <div className="max-w-container mx-auto px-7 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center" aria-label="FADO Group — Trang chủ">
+        <a href="/" className="flex items-center" aria-label={t('homeLabel')}>
           <Logo size={18} onDark />
-        </Link>
+        </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm text-text-muted">
+        <nav className="hidden md:flex items-center gap-7 text-sm text-text-muted">
           {links.map((l) => (
             <a
               key={l.href}
@@ -45,11 +55,21 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
+
+          {/* Language toggle */}
+          <button
+            onClick={toggleLocale}
+            className="font-mono text-[12px] tracking-[0.08em] border border-line-strong px-3 py-1.5 rounded-full hover:border-white/40 hover:text-white transition-all duration-200"
+            aria-label={locale === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}
+          >
+            {locale === 'vi' ? 'EN' : 'VI'}
+          </button>
+
           <a
             href="#contact"
             className="bg-accent text-white font-semibold px-[18px] py-2 rounded-full hover:bg-accent-soft transition-colors duration-200"
           >
-            Liên hệ
+            {t('contact')}
           </a>
         </nav>
 
@@ -57,7 +77,7 @@ export default function Nav() {
         <button
           className="md:hidden flex flex-col gap-[5px] p-1.5"
           onClick={() => setMobileOpen((o) => !o)}
-          aria-label={mobileOpen ? 'Đóng menu' : 'Mở menu'}
+          aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
         >
           <span className="w-[22px] h-0.5 bg-white block" />
           <span className="w-[22px] h-0.5 bg-white block" />
@@ -83,8 +103,14 @@ export default function Nav() {
             className="text-text-muted hover:text-white transition-colors"
             onClick={() => setMobileOpen(false)}
           >
-            Liên hệ
+            {t('contact')}
           </a>
+          <button
+            onClick={() => { toggleLocale(); setMobileOpen(false) }}
+            className="text-left font-mono text-[12px] tracking-[0.08em] text-text-muted hover:text-white transition-colors"
+          >
+            {locale === 'vi' ? '🌐 English' : '🌐 Tiếng Việt'}
+          </button>
         </div>
       )}
     </header>

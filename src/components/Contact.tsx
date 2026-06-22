@@ -1,6 +1,9 @@
+import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
 
-export default function Contact() {
+export default async function Contact() {
+  const t = await getTranslations('contact')
+
   return (
     <section id="contact" className="text-center relative overflow-hidden" style={{ padding: '120px 24px' }}>
       {/* Subtle ember glow */}
@@ -15,26 +18,23 @@ export default function Contact() {
       <FadeIn>
         <div className="max-w-[680px] mx-auto">
           <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-4">
-            Hợp tác cùng FADO Group
+            {t('sectionLabel')}
           </p>
           <h2
             className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
             style={{ fontSize: 'clamp(34px, 5vw, 60px)' }}
           >
-            Sẵn sàng mở rộng
+            {t('headline1')}
             <br />
-            <span className="italic text-accent">chuỗi giá trị</span> cùng chúng tôi?
+            {t('headline2')}
           </h2>
-          <p className="text-text-muted text-[16px] max-w-[560px] mx-auto mb-9">
-            Dù bạn là nhà đầu tư, đối tác logistics hay ứng viên tài năng — chúng tôi luôn tìm
-            kiếm những người đồng hành cho hành trình thương mại không biên giới.
-          </p>
+          <p className="text-text-muted text-[16px] max-w-[560px] mx-auto mb-9">{t('sub')}</p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a
               href="mailto:contact@fadogroup.com.au"
               className="inline-flex items-center justify-center bg-accent text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.5)] transition-all duration-200"
             >
-              contact@fadogroup.com.au
+              {t('emailBtn')}
             </a>
             <a
               href="https://fadogroup.com.au"
@@ -42,7 +42,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center border border-line-strong text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:border-accent hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
             >
-              fadogroup.com.au
+              {t('websiteBtn')}
             </a>
           </div>
         </div>

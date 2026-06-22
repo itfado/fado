@@ -1,15 +1,24 @@
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
 import { brands, segments } from '@/data/brands'
 
-export default function Ecosystem() {
+const countryKeyMap: Record<string, 'countryVN' | 'countryAU'> = {
+  vn: 'countryVN',
+  au: 'countryAU',
+}
+
+export default async function Ecosystem() {
+  const t = await getTranslations('ecosystem')
+  const tSeg = await getTranslations('segments')
+  const tBrands = await getTranslations('brands')
+
   return (
     <section id="ecosystem" style={{ padding: '120px 24px' }}>
       {/* Section header */}
       <div className="max-w-container mx-auto mb-16">
         <FadeIn>
           <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-4">
-            Hệ sinh thái thương hiệu
+            {t('sectionLabel')}
           </p>
         </FadeIn>
         <FadeIn delay={0.06}>
@@ -17,49 +26,92 @@ export default function Ecosystem() {
             className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
           >
-            Năm mảng kinh doanh,
+            {t('headline1')}
             <br />
-            một <span className="italic text-accent">chuỗi giá trị</span> xuyên biên giới.
+            {t('headline2')}
           </h2>
         </FadeIn>
         <FadeIn delay={0.12}>
-          <p className="text-text-muted text-[16px] max-w-[560px]">
-            Mỗi thương hiệu trong FADO Group giải quyết một mắt xích cụ thể của thương mại quốc
-            tế — từ lúc đơn hàng được đặt đến khi sản phẩm có mặt trong tay người dùng cuối, ở
-            bất kỳ quốc gia nào.
-          </p>
+          <p className="text-text-muted text-[16px] max-w-[580px]">{t('sub')}</p>
         </FadeIn>
       </div>
 
       {/* Pillars */}
-      <div className="max-w-container mx-auto border border-line rounded-[20px] overflow-hidden flex flex-col gap-px">
+      <div className="max-w-container mx-auto flex flex-col gap-3">
         {segments.map((seg, si) => {
           const segBrands = brands.filter((b) => b.segment === ((si + 1) as 1 | 2 | 3 | 4 | 5))
+          const accent = seg.color
+
           return (
-            <FadeIn key={seg.index} delay={si * 0.06}>
-              <article className="bg-bg-elevated hover:bg-bg-card transition-colors duration-300 px-10 pt-10 pb-8 border-b border-line last:border-b-0">
+            <FadeIn key={seg.index} delay={si * 0.07}>
+              <article
+                className="rounded-[18px] overflow-hidden border border-line bg-bg-elevated"
+                style={{ borderLeft: `2px solid ${accent}22` }}
+              >
                 {/* Pillar header */}
-                <header className="flex gap-6 items-start mb-7 flex-wrap">
-                  <span className="font-mono text-[13px] text-accent border border-accent/40 rounded-full px-2.5 py-1 flex-shrink-0 mt-1">
+                <header className="px-8 pt-8 pb-6 flex gap-5 items-start flex-wrap border-b border-line">
+                  <span
+                    className="font-mono text-[12px] border rounded-full px-2.5 py-1 flex-shrink-0 mt-0.5 leading-none"
+                    style={{ color: accent, borderColor: `${accent}40`, background: `${accent}0d` }}
+                  >
                     {seg.index}
                   </span>
                   <div>
-                    <h3 className="font-display font-semibold text-[22px] mb-1.5">{seg.title}</h3>
-                    <p className="text-text-muted text-[14.5px] max-w-[520px]">{seg.summary}</p>
+                    <h3 className="font-display font-semibold text-[20px] mb-1.5" style={{ letterSpacing: '-0.01em' }}>
+                      {tSeg(`${seg.index}.title`)}
+                    </h3>
+                    <p className="text-text-muted text-[14px] max-w-[540px]">
+                      {tSeg(`${seg.index}.summary`)}
+                    </p>
                   </div>
                 </header>
 
                 {/* Brand cards */}
-                <ul className="grid gap-2.5" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+                <ul className="grid gap-px p-px" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))' }}>
                   {segBrands.map((brand) => (
                     <li key={brand.slug}>
-                      <Link
-                        href={`/thuong-hieu/${brand.slug}`}
-                        className="group flex flex-col gap-1.5 p-[18px_20px] rounded-card bg-bg-card border border-line hover:border-accent/50 hover:-translate-y-[3px] hover:bg-bg-card-hover transition-all duration-200 block"
-                      >
-                        <span className="font-display font-semibold text-[15.5px] group-hover:text-accent transition-colors duration-200">{brand.name}</span>
-                        <span className="text-[13px] text-text-muted leading-[1.5]">{brand.description}</span>
-                      </Link>
+                      {brand.url !== '#' ? (
+                        <a
+                          href={brand.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex flex-col gap-2 p-5 bg-bg-card hover:bg-bg-card-hover transition-colors duration-200 h-full"
+                        >
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="font-display font-semibold text-[15px] group-hover:text-white transition-colors">
+                              {brand.name}
+                            </span>
+                            {brand.country && (
+                              <span className="font-mono text-[11px] text-text-faint bg-white/5 px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">
+                                {t(countryKeyMap[brand.country])}
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-[13px] text-text-muted leading-[1.55] flex-1">
+                            {tBrands(`${brand.slug}.description`)}
+                          </span>
+                          <span className="font-mono text-[11.5px] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: accent }}>
+                            {t('visitWebsite')}
+                          </span>
+                        </a>
+                      ) : (
+                        <div className="flex flex-col gap-2 p-5 bg-bg-card h-full">
+                          <div className="flex items-start justify-between gap-3">
+                            <span className="font-display font-semibold text-[15px]">{brand.name}</span>
+                            {brand.country && (
+                              <span className="font-mono text-[11px] text-text-faint bg-white/5 px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">
+                                {t(countryKeyMap[brand.country])}
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-[13px] text-text-muted leading-[1.55] flex-1">
+                            {tBrands(`${brand.slug}.description`)}
+                          </span>
+                          <span className="font-mono text-[11.5px] text-text-faint mt-1">
+                            {t('websitePending')}
+                          </span>
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>

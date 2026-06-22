@@ -1,24 +1,15 @@
+import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
 
-const values = [
-  {
-    num: '01',
-    title: 'Vận hành đa quốc gia',
-    body: 'Một hệ thống kho bãi, vận tải và công nghệ chạy đồng bộ trên nhiều thị trường.',
-  },
-  {
-    num: '02',
-    title: 'Công nghệ làm gốc',
-    body: 'Mọi thương hiệu thành viên đều được số hoá bởi nền tảng Woka do chính tập đoàn phát triển.',
-  },
-  {
-    num: '03',
-    title: 'Tăng trưởng theo chuỗi',
-    body: 'Mỗi thương hiệu mới mở ra lấp đầy một mắt xích còn thiếu trong chuỗi giá trị chung.',
-  },
-]
+export default async function About() {
+  const t = await getTranslations('about')
 
-export default function About() {
+  const values = [
+    { num: t('v01Num'), title: t('v01Title'), body: t('v01Body') },
+    { num: t('v02Num'), title: t('v02Title'), body: t('v02Body') },
+    { num: t('v03Num'), title: t('v03Title'), body: t('v03Body') },
+  ]
+
   return (
     <section id="about" style={{ padding: '120px 24px' }}>
       <div className="max-w-container mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16">
@@ -26,7 +17,7 @@ export default function About() {
         <div>
           <FadeIn>
             <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-4">
-              Về chúng tôi
+              {t('sectionLabel')}
             </p>
           </FadeIn>
           <FadeIn delay={0.06}>
@@ -34,33 +25,23 @@ export default function About() {
               className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
               style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
             >
-              Một hệ sinh thái,
+              {t('headline1')}
               <br />
-              được xây từ <span className="italic text-accent">niềm tin</span> xuyên biên giới.
+              {t('headline2')}
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <p className="text-text-muted text-[15.5px] mb-[18px]">
-              FADO Group khởi đầu từ FADO.VN năm 2011 — nền tảng giúp người Việt tiếp cận hàng
-              hoá chính hãng từ Mỹ, Nhật, Đức và Anh. Từ một nền tảng thương mại điện tử xuyên
-              biên giới, chúng tôi mở rộng dần sang logistics, công nghệ và bán lẻ quốc tế, để
-              mỗi mắt xích trong chuỗi cung ứng đều do chính hệ sinh thái của mình vận hành.
-            </p>
+            <p className="text-text-muted text-[15.5px] mb-[18px]">{t('para1')}</p>
           </FadeIn>
           <FadeIn delay={0.18}>
-            <p className="text-text-muted text-[15.5px] mb-7">
-              Hôm nay, FADO Group là tập đoàn đa ngành với các thương hiệu hoạt động độc lập
-              nhưng chia sẻ chung một hạ tầng công nghệ, dữ liệu và vận hành — phục vụ khách
-              hàng cá nhân tại Việt Nam, gia đình trẻ tại Úc, và doanh nghiệp xuất nhập khẩu
-              trên toàn thế giới.
-            </p>
+            <p className="text-text-muted text-[15.5px] mb-7">{t('para2')}</p>
           </FadeIn>
           <FadeIn delay={0.24}>
             <a
               href="#contact"
               className="inline-flex items-center justify-center bg-accent text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.5)] transition-all duration-200"
             >
-              Trở thành đối tác
+              {t('cta')}
             </a>
           </FadeIn>
         </div>

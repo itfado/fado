@@ -1,13 +1,17 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { getTranslations } from 'next-intl/server'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { brands, segments } from '@/data/brands'
+import { routing } from '@/i18n/routing'
 
-type Props = { params: Promise<{ slug: string }> }
+type Props = { params: Promise<{ locale: string; slug: string }> }
 
-export async function generateStaticParams() {
-  return brands.map((b) => ({ slug: b.slug }))
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    brands.map((b) => ({ locale, slug: b.slug }))
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -18,11 +22,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BrandPage({ params }: Props) {
-  const { slug } = await params
+  const { locale, slug } = await params
   const brand = brands.find((b) => b.slug === slug)
   if (!brand) notFound()
 
   const segment = segments[brand.segment - 1]
+  const tBrand = await getTranslations({ locale, namespace: 'brandPage' })
+  const tSeg = await getTranslations({ locale, namespace: 'segments' })
+  const tBrands = await getTranslations({ locale, namespace: 'brands' })
 
   return (
     <>
@@ -32,15 +39,18 @@ export default async function BrandPage({ params }: Props) {
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 font-mono text-[12px] tracking-[0.08em] text-text-faint mb-10">
             <a href="/#ecosystem" className="hover:text-text-muted transition-colors">
-              Hệ sinh thái
+              {tBrand('breadcrumb')}
             </a>
             <span>/</span>
             <span>{brand.name}</span>
           </div>
 
           {/* Segment badge */}
-          <p className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-text-faint mb-4">
-            {segment.index} — {segment.title}
+          <p
+            className="font-mono text-[12.5px] tracking-[0.14em] uppercase text-text-faint mb-4"
+            style={{ color: segment.color }}
+          >
+            {segment.index} — {tSeg(`${segment.index}.title`)}
           </p>
 
           <h1
@@ -51,7 +61,7 @@ export default async function BrandPage({ params }: Props) {
           </h1>
 
           <p className="text-text-muted text-[17px] max-w-[560px] mb-10">
-            {brand.description}
+            {tBrands(`${brand.slug}.description`)}
           </p>
 
           {brand.url !== '#' ? (
@@ -61,10 +71,10 @@ export default async function BrandPage({ params }: Props) {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-white text-black font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-8px_rgba(255,255,255,0.25)] transition-all duration-200"
             >
-              Truy cập website →
+              {tBrand('visitWebsite')}
             </a>
           ) : (
-            <p className="text-text-faint text-[14px] font-mono">Website đang cập nhật</p>
+            <p className="text-text-faint text-[14px] font-mono">{tBrand('websitePending')}</p>
           )}
 
           <div className="mt-16 pt-8 border-t border-line">
@@ -72,7 +82,7 @@ export default async function BrandPage({ params }: Props) {
               href="/#ecosystem"
               className="text-[14px] text-text-muted hover:text-white transition-colors"
             >
-              ← Xem toàn bộ hệ sinh thái
+              {tBrand('backLink')}
             </a>
           </div>
         </div>

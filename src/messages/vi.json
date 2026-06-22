@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "title": "FADO Group — Hệ sinh thái Thương mại & Logistics Xuyên Biên Giới",
+    "description": "FADO Group: tập đoàn đa ngành vận hành hệ sinh thái logistics, công nghệ và bán lẻ xuyên biên giới trên 9 quốc gia.",
+    "ogTitle": "FADO Group — Hệ sinh thái Thương mại & Logistics Xuyên Biên Giới",
+    "ogDescription": "FADO Group: tập đoàn đa ngành vận hành hệ sinh thái logistics, công nghệ và bán lẻ xuyên biên giới trên 9 quốc gia.",
+    "twitterTitle": "FADO Group — Cross-Border Commerce Ecosystem",
+    "twitterDescription": "FADO Group: tập đoàn đa ngành vận hành hệ sinh thái logistics, công nghệ và bán lẻ xuyên biên giới."
+  },
+  "nav": {
+    "ecosystem": "Hệ sinh thái",
+    "global": "Toàn cầu",
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "homeLabel": "FADO Group — Trang chủ"
+  },
+  "hero": {
+    "label": "Tập đoàn FADO — Cross‑Border Commerce Ecosystem",
+    "headline1": "Kết nối thương mại",
+    "headline2": "không biên giới.",
+    "sub": "Từ một nền tảng mua hàng quốc tế năm 2011, FADO Group đã mở rộng thành hệ sinh thái gồm 14+ thương hiệu về logistics, công nghệ và bán lẻ — vận hành xuyên suốt Việt Nam, Úc và hơn 9 quốc gia trên toàn cầu.",
+    "cta1": "Khám phá hệ sinh thái",
+    "cta2": "Liên hệ hợp tác",
+    "scroll": "cuộn xuống"
+  },
+  "stats": {
+    "brands": "thương hiệu thành viên",
+    "countries": "quốc gia hiện diện",
+    "continents": "châu lục kết nối",
+    "years": "năm vận hành & phát triển"
+  },
+  "about": {
+    "sectionLabel": "Về chúng tôi",
+    "headline1": "Một hệ sinh thái,",
+    "headline2": "được xây từ niềm tin xuyên biên giới.",
+    "para1": "FADO Group khởi đầu từ FADO.VN năm 2011 — nền tảng giúp người Việt tiếp cận hàng hoá chính hãng từ Mỹ, Nhật, Đức và Anh. Từ một nền tảng thương mại điện tử xuyên biên giới, chúng tôi mở rộng dần sang logistics, công nghệ và bán lẻ quốc tế, để mỗi mắt xích trong chuỗi cung ứng đều do chính hệ sinh thái của mình vận hành.",
+    "para2": "Hôm nay, FADO Group là tập đoàn đa ngành với các thương hiệu hoạt động độc lập nhưng chia sẻ chung một hạ tầng công nghệ, dữ liệu và vận hành — phục vụ khách hàng cá nhân tại Việt Nam, gia đình trẻ tại Úc, và doanh nghiệp xuất nhập khẩu trên toàn thế giới.",
+    "cta": "Trở thành đối tác",
+    "v01Num": "01",
+    "v01Title": "Vận hành đa quốc gia",
+    "v01Body": "Một hệ thống kho bãi, vận tải và công nghệ chạy đồng bộ trên nhiều thị trường.",
+    "v02Num": "02",
+    "v02Title": "Công nghệ làm gốc",
+    "v02Body": "Mọi thương hiệu thành viên đều được số hoá bởi nền tảng Woka do chính tập đoàn phát triển.",
+    "v03Num": "03",
+    "v03Title": "Tăng trưởng theo chuỗi",
+    "v03Body": "Mỗi thương hiệu mới mở ra lấp đầy một mắt xích còn thiếu trong chuỗi giá trị chung."
+  },
+  "ecosystem": {
+    "sectionLabel": "Hệ sinh thái thương hiệu",
+    "headline1": "Năm mảng kinh doanh,",
+    "headline2": "một chuỗi giá trị xuyên biên giới.",
+    "sub": "Mỗi thương hiệu trong FADO Group giải quyết một mắt xích cụ thể của thương mại quốc tế — từ lúc đơn hàng được đặt đến khi sản phẩm có mặt trong tay người dùng cuối, ở bất kỳ quốc gia nào.",
+    "visitWebsite": "Truy cập website →",
+    "websitePending": "Website đang cập nhật",
+    "countryVN": "Việt Nam",
+    "countryAU": "Úc"
+  },
+  "globalPresence": {
+    "sectionLabel": "Hiện diện toàn cầu",
+    "headline1": "Một chuỗi cung ứng,",
+    "headline2": "chín quốc gia.",
+    "sub": "Văn phòng và kho vận của FADO Group trải dài từ trụ sở tại Úc, các trung tâm vận hành ở Việt Nam, đến các điểm kết nối tại châu Âu, Bắc Mỹ và Đông Á."
+  },
+  "contact": {
+    "sectionLabel": "Hợp tác cùng FADO Group",
+    "headline1": "Sẵn sàng mở rộng",
+    "headline2": "chuỗi giá trị cùng chúng tôi?",
+    "sub": "Dù bạn là nhà đầu tư, đối tác logistics hay ứng viên tài năng — chúng tôi luôn tìm kiếm những người đồng hành cho hành trình thương mại không biên giới.",
+    "emailBtn": "contact@fadogroup.com.au",
+    "websiteBtn": "fadogroup.com.au"
+  },
+  "footer": {
+    "tagline": "Hệ sinh thái thương mại & logistics xuyên biên giới.",
+    "col1Title": "Về chúng tôi",
+    "col1Link1": "Tổng quan công ty",
+    "col1Link2": "Lĩnh vực hoạt động",
+    "col1Link3": "Văn phòng & chi nhánh",
+    "col2Title": "Quan hệ nhà đầu tư",
+    "col2Link1": "Hồ sơ doanh nghiệp",
+    "col2Link2": "Chính sách đầu tư",
+    "col3Title": "Gia nhập",
+    "col3Link1": "Tuyển dụng FADO",
+    "col3Link2": "Tuyển dụng toàn cầu",
+    "col4Title": "Liên hệ",
+    "privacyPolicy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng",
+    "copyright": "© {year} FADO GROUP. ALL RIGHTS RESERVED."
+  },
+  "brandPage": {
+    "breadcrumb": "Hệ sinh thái",
+    "backLink": "← Xem toàn bộ hệ sinh thái",
+    "visitWebsite": "Truy cập website →",
+    "websitePending": "Website đang cập nhật"
+  },
+  "pages": {
+    "about": {
+      "metaTitle": "Về chúng tôi",
+      "status": "Đang cập nhật",
+      "title": "Về chúng tôi",
+      "body": "Trang này đang được xây dựng. Vui lòng quay lại sớm.",
+      "backLink": "← Quay về trang chủ"
+    },
+    "contact": {
+      "metaTitle": "Liên hệ",
+      "sectionLabel": "Liên hệ",
+      "title": "Hợp tác cùng FADO Group.",
+      "infoTitle": "Thông tin liên hệ",
+      "emailLabel": "Email",
+      "websiteLabel": "Website",
+      "hqLabel": "Trụ sở chính",
+      "hqValue": "Ultimo, New South Wales, Australia",
+      "formTitle": "Gửi yêu cầu",
+      "formBody": "Dù bạn là nhà đầu tư, đối tác logistics hay ứng viên tài năng, hãy liên hệ trực tiếp qua email — chúng tôi phản hồi trong vòng 24 giờ.",
+      "formCta": "Gửi email ngay"
+    },
+    "careers": {
+      "metaTitle": "Tuyển dụng",
+      "status": "Đang cập nhật",
+      "title": "Tuyển dụng",
+      "body": "Cơ hội nghề nghiệp tại FADO Group sẽ được cập nhật tại đây.",
+      "cta": "Gửi CV cho chúng tôi"
+    }
+  },
+  "segments": {
+    "01": {
+      "title": "Logistics & Thương mại xuyên biên giới",
+      "summary": "Lõi vận hành của FADO Group — mua hộ, vận chuyển, hải quan và giao nhận quốc tế."
+    },
+    "02": {
+      "title": "Công nghệ Logistics",
+      "summary": "Hạ tầng phần mềm đứng sau toàn bộ hệ sinh thái vận hành."
+    },
+    "03": {
+      "title": "Nông nghiệp, Thương mại & B2B Việt Nam",
+      "summary": "Xuất khẩu nông sản Việt Nam ra thế giới và giải pháp thiết bị, dịch vụ cho doanh nghiệp trong nước."
+    },
+    "04": {
+      "title": "Bán lẻ Gia đình — Úc",
+      "summary": "Sản phẩm và dịch vụ cho gia đình trẻ tại thị trường Úc."
+    },
+    "05": {
+      "title": "Hàng hải & Ngoài trời — Úc",
+      "summary": "Hơn một thế kỷ phục vụ cộng đồng đam mê biển và câu cá tại Úc."
+    }
+  },
+  "brands": {
+    "fado-vn": { "description": "Nền tảng mua hàng quốc tế hơn 5 tỷ sản phẩm chính hãng từ Mỹ, Nhật, Đức, Anh cho người tiêu dùng Việt Nam" },
+    "fado-express": { "description": "Chuyển phát nhanh hai chiều Việt Nam – Quốc tế" },
+    "proship": { "description": "Vận tải đa phương thức: container đường bộ, đường biển, đường sắt, hải quan, kho bãi — 7.400+ tấn mỗi tháng" },
+    "ratraco-solutions": { "description": "Vận tải hàng hóa đường sắt liên vận quốc tế Việt Nam – Trung Quốc – EU — 310 container mỗi tháng" },
+    "fado-solutions": { "description": "Logistics trọn gói xuyên biên giới: đường biển, hàng không, đường bộ, IOR, môi giới hải quan, kho & fulfilment" },
+    "woka": { "description": "Bộ phần mềm logistics tích hợp AI: đường bộ, đường sắt, last-mile, freight forwarding, fulfilment — xây từ 10+ năm vận hành thực tế" },
+    "fado-agri": { "description": "Xuất khẩu nông sản Việt Nam — dừa, trái cây nhiệt đới ra 10+ quốc gia, 500+ container mỗi năm. \"A Promise In Every Fruit\"" },
+    "goprint": { "description": "Cho thuê máy photocopy, máy in màu Ricoh & Toshiba trọn gói — giao miễn phí, hỗ trợ kỹ thuật 24/7 cho doanh nghiệp tại TP.HCM" },
+    "fanaro-solutions": { "description": "Hệ thống quạt công nghiệp HVLS (High Volume Low Speed) — giải pháp lưu thông không khí toàn diện cho kho bãi, nhà máy, tiết kiệm 50%+ điện năng" },
+    "baby-train": { "description": "Chuỗi cửa hàng bán lẻ hàng đầu Melbourne — xe đẩy, ghế ô tô, cũi & đồ sơ sinh. \"Run by parents, for parents\"" },
+    "star-kidz": { "description": "Thương hiệu nội thất & đồ dùng trẻ em cao cấp — nôi CosmO, xe đẩy Adaptii, ghế ăn Bimberi. \"Affordable Luxury\"" },
+    "nanny-annie": { "description": "Nền tảng bán lẻ trực tuyến đồ sơ sinh & nội thất trẻ em — giao hàng toàn nước Úc, hỗ trợ Afterpay" },
+    "ch-smith-marine": { "description": "Từ 1884 — thiết bị hàng hải, điện tử tàu thuyền & đồ câu cá tại Melbourne. Một trong những nhà bán lẻ hàng hải lâu đời nhất Úc" },
+    "kayaks2fish": { "description": "Kayak câu cá & phụ kiện thể thao nước — 5 kho hàng tại Adelaide, Brisbane, Melbourne, Sydney, Perth. 10+ năm phục vụ người đam mê biển" }
+  },
+  "offices": {
+    "group1Title": "Trụ sở & Việt Nam",
+    "group2Title": "Châu Á – Thái Bình Dương",
+    "group3Title": "Châu Âu & Bắc Mỹ",
+    "hq_au": "Trụ sở chính — Ultimo, New South Wales, Úc",
+    "vn_dn": "Chi nhánh Đà Nẵng",
+    "vn_hcm": "Văn phòng TP. Hồ Chí Minh — 3 cơ sở",
+    "vn_sw": "Trung tâm phát triển phần mềm — Quang Trung Software City",
+    "vn_hn": "Chi nhánh Hà Nội",
+    "jp_tk": "Tokyo, Nhật Bản",
+    "kr_sl": "Seoul, Hàn Quốc",
+    "cn_gx": "Đông Hưng, Quảng Tây, Trung Quốc",
+    "kh_pp": "Phnom Penh, Campuchia",
+    "au_bk": "Bankstown, Úc",
+    "de_ff": "Frankfurt, Đức",
+    "gb": "Vương quốc Anh",
+    "us_or": "Portland, Oregon, Hoa Kỳ",
+    "us_tx": "Houston, Texas, Hoa Kỳ"
+  }
+}

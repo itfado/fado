@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "title": "FADO Group — Cross-Border Commerce & Logistics Ecosystem",
+    "description": "FADO Group: a multi-sector conglomerate operating a cross-border logistics, technology and retail ecosystem across 9 countries.",
+    "ogTitle": "FADO Group — Cross-Border Commerce & Logistics Ecosystem",
+    "ogDescription": "FADO Group: a multi-sector conglomerate operating a cross-border logistics, technology and retail ecosystem across 9 countries.",
+    "twitterTitle": "FADO Group — Cross-Border Commerce Ecosystem",
+    "twitterDescription": "FADO Group: a multi-sector conglomerate operating a cross-border logistics, technology and retail ecosystem."
+  },
+  "nav": {
+    "ecosystem": "Ecosystem",
+    "global": "Global",
+    "about": "About",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "homeLabel": "FADO Group — Home"
+  },
+  "hero": {
+    "label": "FADO Group — Cross‑Border Commerce Ecosystem",
+    "headline1": "Commerce without",
+    "headline2": "borders.",
+    "sub": "From an international shopping platform founded in 2011, FADO Group has grown into an ecosystem of 14+ brands across logistics, technology and retail — operating throughout Vietnam, Australia and 9+ countries worldwide.",
+    "cta1": "Explore the ecosystem",
+    "cta2": "Partner with us",
+    "scroll": "scroll down"
+  },
+  "stats": {
+    "brands": "member brands",
+    "countries": "countries present",
+    "continents": "continents connected",
+    "years": "years of operations"
+  },
+  "about": {
+    "sectionLabel": "About us",
+    "headline1": "One ecosystem,",
+    "headline2": "built on cross-border trust.",
+    "para1": "FADO Group began with FADO.VN in 2011 — a platform helping Vietnamese consumers access authentic products from the US, Japan, Germany and the UK. From a cross-border e-commerce platform, we gradually expanded into logistics, technology and international retail, ensuring every link in the supply chain is owned and operated within our own ecosystem.",
+    "para2": "Today, FADO Group is a diversified conglomerate of independently operating brands that share common technology infrastructure, data and operations — serving individual consumers in Vietnam, young families in Australia, and import-export businesses worldwide.",
+    "cta": "Become a partner",
+    "v01Num": "01",
+    "v01Title": "Multi-country operations",
+    "v01Body": "A unified warehousing, logistics and technology system running in sync across multiple markets.",
+    "v02Num": "02",
+    "v02Title": "Technology at the core",
+    "v02Body": "Every member brand is digitised by Woka — a logistics platform built and owned by the Group.",
+    "v03Num": "03",
+    "v03Title": "Value chain growth",
+    "v03Body": "Each new brand fills a missing link in the shared value chain, strengthening the whole ecosystem."
+  },
+  "ecosystem": {
+    "sectionLabel": "Brand ecosystem",
+    "headline1": "Five business verticals,",
+    "headline2": "one cross-border value chain.",
+    "sub": "Each brand within FADO Group solves a specific link in international commerce — from the moment an order is placed to the moment the product reaches the end customer, anywhere in the world.",
+    "visitWebsite": "Visit website →",
+    "websitePending": "Website coming soon",
+    "countryVN": "Vietnam",
+    "countryAU": "Australia"
+  },
+  "globalPresence": {
+    "sectionLabel": "Global presence",
+    "headline1": "One supply chain,",
+    "headline2": "nine countries.",
+    "sub": "FADO Group's offices and logistics hubs span from headquarters in Australia, operational centres in Vietnam, to connection points in Europe, North America and East Asia."
+  },
+  "contact": {
+    "sectionLabel": "Partner with FADO Group",
+    "headline1": "Ready to expand",
+    "headline2": "your value chain with us?",
+    "sub": "Whether you are an investor, logistics partner or talented candidate — we are always looking for people to join our cross-border commerce journey.",
+    "emailBtn": "contact@fadogroup.com.au",
+    "websiteBtn": "fadogroup.com.au"
+  },
+  "footer": {
+    "tagline": "Cross-border commerce & logistics ecosystem.",
+    "col1Title": "About",
+    "col1Link1": "Company overview",
+    "col1Link2": "Business verticals",
+    "col1Link3": "Offices & branches",
+    "col2Title": "Investor relations",
+    "col2Link1": "Corporate profile",
+    "col2Link2": "Investment policy",
+    "col3Title": "Join us",
+    "col3Link1": "FADO careers",
+    "col3Link2": "Global careers",
+    "col4Title": "Contact",
+    "privacyPolicy": "Privacy policy",
+    "terms": "Terms of use",
+    "copyright": "© {year} FADO GROUP. ALL RIGHTS RESERVED."
+  },
+  "brandPage": {
+    "breadcrumb": "Ecosystem",
+    "backLink": "← Back to the full ecosystem",
+    "visitWebsite": "Visit website →",
+    "websitePending": "Website coming soon"
+  },
+  "pages": {
+    "about": {
+      "metaTitle": "About us",
+      "status": "Coming soon",
+      "title": "About us",
+      "body": "This page is under construction. Please check back soon.",
+      "backLink": "← Back to home"
+    },
+    "contact": {
+      "metaTitle": "Contact",
+      "sectionLabel": "Contact",
+      "title": "Partner with FADO Group.",
+      "infoTitle": "Contact information",
+      "emailLabel": "Email",
+      "websiteLabel": "Website",
+      "hqLabel": "Headquarters",
+      "hqValue": "Ultimo, New South Wales, Australia",
+      "formTitle": "Send a request",
+      "formBody": "Whether you are an investor, logistics partner or talented candidate, reach out directly via email — we respond within 24 hours.",
+      "formCta": "Send an email"
+    },
+    "careers": {
+      "metaTitle": "Careers",
+      "status": "Coming soon",
+      "title": "Careers",
+      "body": "Career opportunities at FADO Group will be listed here.",
+      "cta": "Send us your CV"
+    }
+  },
+  "segments": {
+    "01": {
+      "title": "Logistics & Cross-Border Commerce",
+      "summary": "The operational core of FADO Group — purchasing, shipping, customs clearance and international delivery."
+    },
+    "02": {
+      "title": "Logistics Technology",
+      "summary": "The software infrastructure powering the entire operational ecosystem."
+    },
+    "03": {
+      "title": "Agriculture, Commerce & B2B Vietnam",
+      "summary": "Exporting Vietnamese agricultural products worldwide and providing equipment and service solutions for domestic businesses."
+    },
+    "04": {
+      "title": "Family Retail — Australia",
+      "summary": "Products and services for young families in the Australian market."
+    },
+    "05": {
+      "title": "Marine & Outdoor — Australia",
+      "summary": "Over a century of serving Australia's marine and fishing community."
+    }
+  },
+  "brands": {
+    "fado-vn": { "description": "International shopping platform with 5+ billion authentic products from the US, Japan, Germany and the UK for Vietnamese consumers" },
+    "fado-express": { "description": "Two-way express courier Vietnam – International" },
+    "proship": { "description": "Multimodal freight: container, road, sea, rail, customs, warehousing — 7,400+ tons/month" },
+    "ratraco-solutions": { "description": "International railway freight Vietnam – China – EU — 310 containers/month" },
+    "fado-solutions": { "description": "End-to-end cross-border logistics: sea, air, road, IOR, customs brokerage, warehousing & fulfilment" },
+    "woka": { "description": "AI-powered logistics software suite: road, rail, last-mile, freight forwarding, fulfilment — built on 10+ years of real operations" },
+    "fado-agri": { "description": "Vietnamese agricultural exports — coconuts, tropical fruits to 10+ countries, 500+ containers/year. \"A Promise In Every Fruit\"" },
+    "goprint": { "description": "Ricoh & Toshiba photocopier and printer rental — free delivery, 24/7 technical support for businesses in Ho Chi Minh City" },
+    "fanaro-solutions": { "description": "HVLS industrial fan systems — comprehensive air circulation solutions for warehouses and factories, saving 50%+ energy" },
+    "baby-train": { "description": "Melbourne's leading baby retail chain — prams, car seats, cots & nursery essentials. \"Run by parents, for parents\"" },
+    "star-kidz": { "description": "Premium baby furniture & nursery brand — CosmO cots, Adaptii prams, Bimberi high chairs. \"Affordable Luxury\"" },
+    "nanny-annie": { "description": "Online baby & children's furniture retailer — nationwide delivery across Australia, Afterpay available" },
+    "ch-smith-marine": { "description": "Est. 1884 — marine hardware, boat electronics & fishing tackle in Melbourne. One of Australia's oldest marine retailers" },
+    "kayaks2fish": { "description": "Fishing kayaks & water sports accessories — 5 warehouses across Adelaide, Brisbane, Melbourne, Sydney and Perth. 10+ years serving ocean enthusiasts" }
+  },
+  "offices": {
+    "group1Title": "Headquarters & Vietnam",
+    "group2Title": "Asia-Pacific",
+    "group3Title": "Europe & North America",
+    "hq_au": "Headquarters — Ultimo, New South Wales, Australia",
+    "vn_dn": "Da Nang Branch",
+    "vn_hcm": "Ho Chi Minh City — 3 offices",
+    "vn_sw": "Software Development Centre — Quang Trung Software City",
+    "vn_hn": "Hanoi Branch",
+    "jp_tk": "Tokyo, Japan",
+    "kr_sl": "Seoul, South Korea",
+    "cn_gx": "Dongxing, Guangxi, China",
+    "kh_pp": "Phnom Penh, Cambodia",
+    "au_bk": "Bankstown, Australia",
+    "de_ff": "Frankfurt, Germany",
+    "gb": "United Kingdom",
+    "us_or": "Portland, Oregon, USA",
+    "us_tx": "Houston, Texas, USA"
+  }
+}

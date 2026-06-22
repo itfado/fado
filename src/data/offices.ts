@@ -1,41 +1,41 @@
 export type Office = {
   flag: string
-  label: string
+  labelKey: string
 }
 
 export type OfficeGroup = {
-  title: string
+  titleKey: string
   offices: Office[]
 }
 
 export const officeGroups: OfficeGroup[] = [
   {
-    title: 'Trụ sở & Việt Nam',
+    titleKey: 'group1Title',
     offices: [
-      { flag: '🇦🇺', label: 'Trụ sở chính — Ultimo, New South Wales, Australia' },
-      { flag: '🇻🇳', label: 'Chi nhánh Đà Nẵng' },
-      { flag: '🇻🇳', label: 'Văn phòng TP. Hồ Chí Minh — 3 cơ sở' },
-      { flag: '🇻🇳', label: 'Trung tâm phát triển phần mềm — Quang Trung Software City' },
-      { flag: '🇻🇳', label: 'Chi nhánh Hà Nội' },
+      { flag: '🇦🇺', labelKey: 'hq_au' },
+      { flag: '🇻🇳', labelKey: 'vn_dn' },
+      { flag: '🇻🇳', labelKey: 'vn_hcm' },
+      { flag: '🇻🇳', labelKey: 'vn_sw' },
+      { flag: '🇻🇳', labelKey: 'vn_hn' },
     ],
   },
   {
-    title: 'Châu Á – Thái Bình Dương',
+    titleKey: 'group2Title',
     offices: [
-      { flag: '🇯🇵', label: 'Tokyo, Nhật Bản' },
-      { flag: '🇰🇷', label: 'Seoul, Hàn Quốc' },
-      { flag: '🇨🇳', label: 'Đông Hưng, Quảng Tây, Trung Quốc' },
-      { flag: '🇰🇭', label: 'Phnom Penh, Campuchia' },
-      { flag: '🇦🇺', label: 'Bankstown, Úc' },
+      { flag: '🇯🇵', labelKey: 'jp_tk' },
+      { flag: '🇰🇷', labelKey: 'kr_sl' },
+      { flag: '🇨🇳', labelKey: 'cn_gx' },
+      { flag: '🇰🇭', labelKey: 'kh_pp' },
+      { flag: '🇦🇺', labelKey: 'au_bk' },
     ],
   },
   {
-    title: 'Châu Âu & Bắc Mỹ',
+    titleKey: 'group3Title',
     offices: [
-      { flag: '🇩🇪', label: 'Frankfurt, Đức' },
-      { flag: '🇬🇧', label: 'Vương quốc Anh' },
-      { flag: '🇺🇸', label: 'Portland, Oregon, Hoa Kỳ' },
-      { flag: '🇺🇸', label: 'Houston, Texas, Hoa Kỳ' },
+      { flag: '🇩🇪', labelKey: 'de_ff' },
+      { flag: '🇬🇧', labelKey: 'gb' },
+      { flag: '🇺🇸', labelKey: 'us_or' },
+      { flag: '🇺🇸', labelKey: 'us_tx' },
     ],
   },
 ]
