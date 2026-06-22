@@ -1,5 +1,6 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
+import VideoShowcase from '@/components/VideoShowcase'
 import Stats from '@/components/Stats'
 import About from '@/components/About'
 import Ecosystem from '@/components/Ecosystem'
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <Nav />
       <Hero />
+      <VideoShowcase />
       <Stats />
       <About />
       <Ecosystem />
