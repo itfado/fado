@@ -13,8 +13,8 @@ type Particle = {
 
 const COUNT = 70
 const MAX_DIST = 190
-const MOUSE_RADIUS = 180
-const MOUSE_FORCE = 0.012
+const MOUSE_RADIUS = 220
+const MOUSE_FORCE = 0.013   // gentle attraction when idle
 const BASE_SPEED = 0.32
 
 export default function HeroCanvas() {
@@ -30,6 +30,7 @@ export default function HeroCanvas() {
 
     let w = 0, h = 0, dpr = 1
     let mx = -9999, my = -9999
+    let pmx = -9999, pmy = -9999   // previous mouse pos for velocity calc
     let rafId = 0
     const particles: Particle[] = []
 
@@ -62,13 +63,15 @@ export default function HeroCanvas() {
     function onMouseMove(e: MouseEvent) {
       const hero = canvas!.parentElement!
       const rect = hero.getBoundingClientRect()
+      pmx = mx
+      pmy = my
       mx = e.clientX - rect.left
       my = e.clientY - rect.top
     }
 
     function onMouseLeave() {
-      mx = -9999
-      my = -9999
+      pmx = -9999; pmy = -9999
+      mx = -9999; my = -9999
     }
 
     function drawStatic() {
@@ -104,27 +107,51 @@ export default function HeroCanvas() {
 
       ctx!.clearRect(0, 0, w, h)
 
+      // Mouse velocity this frame — cleared after reading so it doesn't persist
+      const mouseVx = (pmx > -9000 && mx > -9000) ? (mx - pmx) : 0
+      const mouseVy = (pmy > -9000 && my > -9000) ? (my - pmy) : 0
+      const mouseSpeed = Math.sqrt(mouseVx * mouseVx + mouseVy * mouseVy)
+      // Reset previous = current so velocity = 0 next frame if no new mousemove
+      pmx = mx
+      pmy = my
+
       for (const p of particles) {
-        // Mouse attraction
         const dx = mx - p.x
         const dy = my - p.y
         const dist2 = dx * dx + dy * dy
-        if (dist2 < MOUSE_RADIUS * MOUSE_RADIUS && dist2 > 0) {
+
+        if (dist2 < MOUSE_RADIUS * MOUSE_RADIUS && mx > -9000) {
           const dist = Math.sqrt(dist2)
-          const force = (1 - dist / MOUSE_RADIUS) * MOUSE_FORCE
-          p.vx += (dx / dist) * force
-          p.vy += (dy / dist) * force
+          const proximity = 1 - dist / MOUSE_RADIUS
+
+          if (mouseSpeed > 4) {
+            // Fast sweep — carry particles along with cursor direction
+            p.vx += mouseVx * proximity * 0.22
+            p.vy += mouseVy * proximity * 0.22
+          } else {
+            // Idle / slow — gentle attraction toward cursor
+            if (dist > 0) {
+              const force = proximity * MOUSE_FORCE
+              p.vx += (dx / dist) * force
+              p.vy += (dy / dist) * force
+            }
+          }
         }
 
-        // Velocity damping + speed clamp
-        p.vx *= 0.999
-        p.vy *= 0.999
+        // Damping — looser when mouse active so particles carry momentum
+        const damping = mouseSpeed > 4 ? 0.95 : 0.999
+        p.vx *= damping
+        p.vy *= damping
+
+        // Speed cap — much higher when mouse is sweeping
+        const maxSpeed = mouseSpeed > 4 ? BASE_SPEED * 7 : BASE_SPEED * 2.8
         const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy)
-        if (spd > BASE_SPEED * 2.8) {
-          p.vx = (p.vx / spd) * BASE_SPEED * 2.8
-          p.vy = (p.vy / spd) * BASE_SPEED * 2.8
+        if (spd > maxSpeed) {
+          p.vx = (p.vx / spd) * maxSpeed
+          p.vy = (p.vy / spd) * maxSpeed
         }
-        // Keep moving if too slow
+
+        // Keep drifting if too slow
         if (spd < BASE_SPEED * 0.25) {
           p.vx += (Math.random() - 0.5) * 0.015
           p.vy += (Math.random() - 0.5) * 0.015
