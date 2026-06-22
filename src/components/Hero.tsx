@@ -74,7 +74,7 @@ export default async function Hero() {
           className="text-text-muted mx-auto mb-12 leading-[1.75]"
           style={{
             fontSize: 'clamp(15px, 1.6vw, 17px)',
-            maxWidth: '520px',
+            maxWidth: '600px',
             animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both',
             animationDelay: '0.40s',
           }}
