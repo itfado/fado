@@ -19,6 +19,7 @@ const config: Config = {
         display: ['var(--font-space-grotesk)', 'Inter', 'sans-serif'],
         body: ['var(--font-inter)', 'sans-serif'],
         mono: ['var(--font-jetbrains-mono)', 'monospace'],
+        wordmark: ['var(--font-montserrat)', 'sans-serif'],
       },
       maxWidth: {
         container: '1180px',

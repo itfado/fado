@@ -1,3 +1,5 @@
+import Logo from './Logo'
+
 const currentYear = new Date().getFullYear()
 
 const cols = [
@@ -38,9 +40,7 @@ export default function Footer() {
       <div className="max-w-container mx-auto flex justify-between gap-12 flex-wrap mb-12">
         {/* Brand */}
         <div>
-          <span className="font-display font-bold text-[18px] tracking-widest">
-            FADO<span className="text-text-muted font-medium ml-0.5">GROUP</span>
-          </span>
+          <Logo size={18} onDark />
           <p className="text-text-muted text-[14px] mt-2.5 max-w-[240px]">
             Hệ sinh thái thương mại & logistics xuyên biên giới.
           </p>

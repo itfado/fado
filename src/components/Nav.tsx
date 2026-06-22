@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Logo from './Logo'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -29,11 +30,8 @@ export default function Nav() {
     >
       <div className="max-w-container mx-auto px-7 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-white" aria-hidden="true" />
-          <span className="font-display font-bold text-[18px] tracking-widest">
-            FADO<span className="text-text-muted font-medium ml-0.5">GROUP</span>
-          </span>
+        <Link href="/" className="flex items-center" aria-label="FADO Group — Trang chủ">
+          <Logo size={18} onDark />
         </Link>
 
         {/* Desktop nav */}
