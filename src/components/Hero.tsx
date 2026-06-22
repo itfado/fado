@@ -36,7 +36,7 @@ export default async function Hero() {
         <div className="inline-flex items-center gap-2 mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-white/40 animate-pulse" />
           <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-text-faint">
-            {t('label')}
+            FADO Group
           </p>
         </div>
 
