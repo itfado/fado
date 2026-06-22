@@ -42,18 +42,18 @@ export default async function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-display font-extralight leading-[1.0] mb-8"
-          style={{ fontSize: 'clamp(52px, 7.5vw, 100px)', letterSpacing: '-0.04em' }}
+          className="font-display font-bold leading-[1.04] mb-8"
+          style={{ fontSize: 'clamp(52px, 7.5vw, 96px)', letterSpacing: '-0.025em' }}
         >
           {t('headline1')}
           <br />
-          <span className="font-extralight italic text-accent">{t('headline2')}</span>
+          <span className="italic text-accent">{t('headline2')}</span>
         </h1>
 
         {/* Sub */}
         <p
-          className="text-text-muted mx-auto mb-10 max-w-[600px] leading-[1.72]"
-          style={{ fontSize: 'clamp(15px, 1.8vw, 17.5px)' }}
+          className="text-text-muted mx-auto mb-10 max-w-[580px] leading-[1.75]"
+          style={{ fontSize: 'clamp(15px, 1.6vw, 17px)' }}
         >
           {t('sub')}
         </p>

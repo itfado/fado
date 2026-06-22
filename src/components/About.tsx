@@ -22,8 +22,8 @@ export default async function About() {
           </FadeIn>
           <FadeIn delay={0.06}>
             <h2
-              className="font-display font-light leading-[1.1] mb-[18px]"
-              style={{ fontSize: 'clamp(32px, 4vw, 52px)', letterSpacing: '-0.03em' }}
+              className="font-display font-semibold leading-[1.1] mb-[18px]"
+              style={{ fontSize: 'clamp(30px, 4vw, 50px)', letterSpacing: '-0.025em' }}
             >
               {t('headline1')}
               <br />

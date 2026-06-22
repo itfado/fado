@@ -21,8 +21,8 @@ export default async function Contact() {
             {t('sectionLabel')}
           </p>
           <h2
-            className="font-display font-light leading-[1.1] mb-[18px]"
-            style={{ fontSize: 'clamp(34px, 4.5vw, 58px)', letterSpacing: '-0.03em' }}
+            className="font-display font-semibold leading-[1.1] mb-[18px]"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.025em' }}
           >
             {t('headline1')}
             <br />
