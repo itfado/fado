@@ -22,8 +22,8 @@ export default async function About() {
           </FadeIn>
           <FadeIn delay={0.06}>
             <h2
-              className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
-              style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
+              className="font-display font-light leading-[1.1] mb-[18px]"
+              style={{ fontSize: 'clamp(32px, 4vw, 52px)', letterSpacing: '-0.03em' }}
             >
               {t('headline1')}
               <br />
@@ -52,7 +52,7 @@ export default async function About() {
             <FadeIn key={v.num} delay={i * 0.08}>
               <div className="p-[26px_28px] rounded-[16px] bg-bg-elevated border border-line hover:border-accent/40 transition-colors duration-300">
                 <span className="font-mono text-[13px] text-accent">{v.num}</span>
-                <h4 className="font-display font-semibold text-[17px] mt-2.5 mb-2">{v.title}</h4>
+                <h4 className="font-ui font-semibold text-[16px] mt-2.5 mb-2">{v.title}</h4>
                 <p className="text-[14px] text-text-muted">{v.body}</p>
               </div>
             </FadeIn>

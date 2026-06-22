@@ -21,8 +21,8 @@ export default async function GlobalPresence() {
         </FadeIn>
         <FadeIn delay={0.06}>
           <h2
-            className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
+            className="font-display font-light leading-[1.1] mb-[18px]"
+            style={{ fontSize: 'clamp(32px, 4vw, 52px)', letterSpacing: '-0.03em' }}
           >
             {t('headline1')}
             <br />

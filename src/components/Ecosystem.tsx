@@ -23,8 +23,8 @@ export default async function Ecosystem() {
         </FadeIn>
         <FadeIn delay={0.06}>
           <h2
-            className="font-serif font-medium leading-[1.08] mb-[18px] tracking-[-0.02em]"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
+            className="font-display font-light leading-[1.1] mb-[18px]"
+            style={{ fontSize: 'clamp(32px, 4vw, 52px)', letterSpacing: '-0.03em' }}
           >
             {t('headline1')}
             <br />
@@ -57,7 +57,7 @@ export default async function Ecosystem() {
                     {seg.index}
                   </span>
                   <div>
-                    <h3 className="font-display font-semibold text-[20px] mb-1.5" style={{ letterSpacing: '-0.01em' }}>
+                    <h3 className="font-ui font-semibold text-[18px] mb-1.5" style={{ letterSpacing: '-0.01em' }}>
                       {tSeg(`${seg.index}.title`)}
                     </h3>
                     <p className="text-text-muted text-[14px] max-w-[540px]">
@@ -78,7 +78,7 @@ export default async function Ecosystem() {
                           className="group flex flex-col gap-2 p-5 bg-bg-card hover:bg-bg-card-hover transition-colors duration-200 h-full"
                         >
                           <div className="flex items-start justify-between gap-3">
-                            <span className="font-display font-semibold text-[15px] group-hover:text-white transition-colors">
+                            <span className="font-ui font-semibold text-[14.5px] group-hover:text-white transition-colors">
                               {brand.name}
                             </span>
                             {brand.country && (
@@ -97,7 +97,7 @@ export default async function Ecosystem() {
                       ) : (
                         <div className="flex flex-col gap-2 p-5 bg-bg-card h-full">
                           <div className="flex items-start justify-between gap-3">
-                            <span className="font-display font-semibold text-[15px]">{brand.name}</span>
+                            <span className="font-ui font-semibold text-[14.5px]">{brand.name}</span>
                             {brand.country && (
                               <span className="font-mono text-[11px] text-text-faint bg-white/5 px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">
                                 {t(countryKeyMap[brand.country])}

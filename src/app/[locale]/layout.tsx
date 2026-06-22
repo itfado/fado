@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter, JetBrains_Mono, Montserrat, Playfair_Display } from 'next/font/google'
+import { Space_Grotesk, Inter, JetBrains_Mono, Montserrat } from 'next/font/google'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getTranslations, getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -28,17 +28,10 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  variable: '--font-montserrat',
-  display: 'swap',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  subsets: ['latin', 'vietnamese'],
+  weight: ['200', '300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
-  variable: '--font-playfair',
+  variable: '--font-montserrat',
   display: 'swap',
 })
 
@@ -88,7 +81,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${montserrat.variable} ${playfair.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${montserrat.variable}`}
     >
       <body>
         <NextIntlClientProvider messages={messages}>

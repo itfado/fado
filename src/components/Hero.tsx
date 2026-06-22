@@ -42,12 +42,12 @@ export default async function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-serif font-medium leading-[1.05] mb-7"
-          style={{ fontSize: 'clamp(44px, 6.5vw, 82px)', letterSpacing: '-0.03em', textWrap: 'balance' } as React.CSSProperties}
+          className="font-display font-extralight leading-[1.0] mb-8"
+          style={{ fontSize: 'clamp(52px, 7.5vw, 100px)', letterSpacing: '-0.04em' }}
         >
           {t('headline1')}
           <br />
-          <span className="italic text-accent">{t('headline2')}</span>
+          <span className="font-extralight italic text-accent">{t('headline2')}</span>
         </h1>
 
         {/* Sub */}

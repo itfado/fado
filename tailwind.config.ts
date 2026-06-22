@@ -19,11 +19,11 @@ const config: Config = {
         'accent-soft': '#FF7A47',
       },
       fontFamily: {
-        display: ['var(--font-space-grotesk)', 'Inter', 'sans-serif'],
+        display: ['var(--font-montserrat)', 'sans-serif'],
+        ui: ['var(--font-space-grotesk)', 'Inter', 'sans-serif'],
         body: ['var(--font-inter)', 'sans-serif'],
         mono: ['var(--font-jetbrains-mono)', 'monospace'],
         wordmark: ['var(--font-montserrat)', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
       },
       maxWidth: {
         container: '1180px',
