@@ -42,8 +42,8 @@ export default async function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-display font-bold leading-[1.04] mb-8"
-          style={{ fontSize: 'clamp(52px, 7.5vw, 96px)', letterSpacing: '-0.025em' }}
+          className="font-display font-bold leading-[1.06] mb-8"
+          style={{ fontSize: 'clamp(40px, 4.8vw, 66px)', letterSpacing: '-0.025em', overflowWrap: 'break-word', wordBreak: 'keep-all' }}
         >
           {t('headline1')}
           <br />
@@ -52,7 +52,7 @@ export default async function Hero() {
 
         {/* Sub */}
         <p
-          className="text-text-muted mx-auto mb-10 max-w-[580px] leading-[1.75]"
+          className="text-text-muted mx-auto mb-10 max-w-[640px] leading-[1.75]"
           style={{ fontSize: 'clamp(15px, 1.6vw, 17px)' }}
         >
           {t('sub')}
