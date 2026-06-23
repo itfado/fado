@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
    sáng cam) chảy xuống và hội tụ dần về tâm như rót qua phễu. Opacity gắn theo
    vị trí cuộn nên chỉ hiện trong vùng chuyển tiếp hero → nội dung. */
 
-const COUNT = 80
+const COUNT = 45
 
 export default function TransitionCanvas() {
   const wrapRef = useRef<HTMLDivElement>(null)
@@ -41,9 +41,9 @@ export default function TransitionCanvas() {
       pts = Array.from({ length: COUNT }, () => ({
         x0: Math.random(), // 0..1 vị trí ngang gốc
         y: Math.random() * H,
-        r: Math.random() * 1.7 + 0.6,
-        op: 0.2 + Math.random() * 0.55,
-        sp: 40 + Math.random() * 90, // px/giây rơi xuống
+        r: Math.random() * 1.2 + 0.5,
+        op: 0.08 + Math.random() * 0.18,
+        sp: 22 + Math.random() * 45, // px/giây rơi xuống
       }))
     }
     init()
@@ -71,8 +71,8 @@ export default function TransitionCanvas() {
 
         // Quầng phễu: cam đậm ở trên, hội tụ & nhạt dần xuống
         const cone = ctx!.createLinearGradient(0, 0, 0, H)
-        cone.addColorStop(0, `rgba(255,90,31,${0.06 * op})`)
-        cone.addColorStop(0.55, `rgba(255,90,31,${0.03 * op})`)
+        cone.addColorStop(0, `rgba(255,90,31,${0.03 * op})`)
+        cone.addColorStop(0.55, `rgba(255,90,31,${0.015 * op})`)
         cone.addColorStop(1, 'rgba(255,90,31,0)')
         ctx!.fillStyle = cone
         ctx!.fillRect(0, 0, W, H)
@@ -87,8 +87,8 @@ export default function TransitionCanvas() {
           ctx!.beginPath()
           ctx!.arc(x, p.y, p.r * (1 - t * 0.3), 0, Math.PI * 2)
           ctx!.fillStyle = `rgba(255,${90 + Math.round(t * 45)},31,${p.op * op})`
-          ctx!.shadowColor = 'rgba(255,90,31,0.8)'
-          ctx!.shadowBlur = 6
+          ctx!.shadowColor = 'rgba(255,90,31,0.4)'
+          ctx!.shadowBlur = 3
           ctx!.fill()
           ctx!.shadowBlur = 0
         }
