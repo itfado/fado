@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
    sáng ngay khối CTA — như đáy phễu / điểm chuyển đổi. Kích hoạt khi section
    vào tầm nhìn (opacity ramp). Canvas đặt sau nội dung. */
 
-const COUNT = 55
+const COUNT = 38
 const FOCAL_Y = 0.72 // vị trí "đáy phễu" theo chiều cao section (gần CTA)
 
 export default function ContactFunnel() {
@@ -40,9 +40,9 @@ export default function ContactFunnel() {
     const pts: P[] = Array.from({ length: COUNT }, () => ({
       a: (Math.random() - 0.5) * 2, // hệ số trải ngang -1..1
       p: Math.random(), // tiến trình 0 (trên) → 1 (đáy phễu)
-      sp: 0.05 + Math.random() * 0.1,
-      r: Math.random() * 1.5 + 0.6,
-      op: 0.14 + Math.random() * 0.34,
+      sp: 0.018 + Math.random() * 0.032,
+      r: Math.random() * 1.2 + 0.5,
+      op: 0.07 + Math.random() * 0.13,
     }))
 
     let active = false
@@ -56,7 +56,7 @@ export default function ContactFunnel() {
     function draw(now: number) {
       const dt = Math.min(0.05, (now - last) / 1000)
       last = now
-      shown += ((active ? 1 : 0) - shown) * Math.min(1, dt * 1.5) // ramp opacity êm, từ tốn
+      shown += ((active ? 1 : 0) - shown) * Math.min(1, dt * 0.8) // ramp opacity êm, từ tốn
       ctx!.clearRect(0, 0, W, H)
 
       if (shown > 0.01) {
