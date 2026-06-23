@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // ─── Replace with actual YouTube video ID when ready ──────────────────────────
-const YOUTUBE_ID = ''
+const YOUTUBE_ID = 'eSwwC2LbtDI'
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function VideoShowcase() {
@@ -16,6 +16,14 @@ export default function VideoShowcase() {
   const glowRef       = useRef<HTMLDivElement>(null)
   const gridRef       = useRef<HTMLDivElement>(null)
   const particlesRef  = useRef<HTMLDivElement>(null)
+  const iframeRef     = useRef<HTMLIFrameElement>(null)
+
+  function closeVideo() {
+    iframeRef.current?.contentWindow?.postMessage(
+      '{"event":"command","func":"pauseVideo","args":""}', '*'
+    )
+    setPlaying(false)
+  }
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -61,8 +69,8 @@ export default function VideoShowcase() {
     ScrollTrigger.create({
       trigger: section,
       start: 'top top',
-      end:   '+=580',   // shorter pin — card reaches you faster
-      scrub: 1.2,        // snappier follow
+      end:   '+=580',
+      scrub: 1.2,
       pin:   true,
       pinSpacing: true,
       animation: tl,
@@ -269,7 +277,7 @@ export default function VideoShowcase() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10"
           style={{ background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
-          onClick={() => setPlaying(false)}
+          onClick={closeVideo}
           role="dialog" aria-modal="true"
           aria-label="Video giới thiệu FADO Group"
         >
@@ -280,7 +288,8 @@ export default function VideoShowcase() {
           >
             {YOUTUBE_ID ? (
               <iframe
-                src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&modestbranding=1`}
+                ref={iframeRef}
+                src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
                 title="FADO Group — Video tổng quan"
                 allow="autoplay; fullscreen"
                 allowFullScreen
@@ -292,7 +301,7 @@ export default function VideoShowcase() {
               </div>
             )}
             <button
-              onClick={() => setPlaying(false)}
+              onClick={closeVideo}
               className="absolute top-4 right-4 flex items-center justify-center rounded-full transition-all hover:scale-110 active:scale-90"
               style={{ width: 36, height: 36, background: 'rgba(255,255,255,0.09)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.13)' }}
               aria-label="Đóng video"

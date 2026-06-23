@@ -16,7 +16,7 @@ export default async function Hero() {
         className="absolute inset-0 pointer-events-none z-0"
         style={{
           background:
-            'radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255,90,31,0.14), transparent 70%)',
+            'radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255,90,31,0.22), transparent 70%)',
         }}
         aria-hidden="true"
       />
@@ -103,9 +103,19 @@ export default async function Hero() {
         </div>
       </div>
 
+      {/* Bottom fade — dissolves hero content before VideoShowcase enters */}
+      <div
+        className="absolute bottom-0 left-0 right-0 pointer-events-none z-20"
+        style={{
+          height: '40%',
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 50%, #000 100%)',
+        }}
+        aria-hidden="true"
+      />
+
       {/* Scroll cue */}
       <div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
         aria-hidden="true"
         style={{ animation: 'heroFade 1s ease both', animationDelay: '0.9s' }}
       >
