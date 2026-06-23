@@ -46,7 +46,7 @@ export default async function Ecosystem() {
       {/* Pillars */}
       <div className="max-w-container mx-auto flex flex-col gap-3">
         {segments.map((seg, si) => {
-          const segBrands = brands.filter((b) => b.segment === ((si + 1) as 1 | 2 | 3 | 4 | 5))
+          const segBrands = brands.filter((b) => b.segment === seg.key)
           const accent = seg.color
 
           return (
@@ -66,10 +66,10 @@ export default async function Ecosystem() {
                   </span>
                   <div>
                     <h3 className="font-ui font-semibold text-[18px] mb-1.5" style={{ letterSpacing: '-0.01em' }}>
-                      {tSeg(`${seg.index}.title`)}
+                      {tSeg(`${seg.titleKey}.title`)}
                     </h3>
                     <p className="text-text-muted text-[14px] max-w-[540px]">
-                      {tSeg(`${seg.index}.summary`)}
+                      {tSeg(`${seg.titleKey}.summary`)}
                     </p>
                   </div>
                 </header>

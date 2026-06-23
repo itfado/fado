@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
 import TypingText from './TypingText'
+import ContactFunnel from './ContactFunnel'
 
 export default async function Contact() {
   const t = await getTranslations('contact')
@@ -16,8 +17,9 @@ export default async function Contact() {
         }}
         aria-hidden="true"
       />
+      <ContactFunnel />
       <FadeIn>
-        <div className="max-w-[680px] mx-auto">
+        <div className="max-w-[680px] mx-auto relative z-10">
           <p className="font-mono text-[12.5px] tracking-[0.16em] uppercase text-accent mb-4">
             {t('sectionLabel')}
           </p>
@@ -35,17 +37,9 @@ export default async function Contact() {
           <div className="flex gap-4 justify-center flex-wrap">
             <a
               href="mailto:contact@fadogroup.com.au"
-              className="inline-flex items-center justify-center bg-accent text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.5)] transition-all duration-200"
+              className="inline-flex items-center justify-center border border-accent text-accent font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:bg-accent hover:text-white hover:-translate-y-0.5 transition-all duration-200"
             >
               {t('emailBtn')}
-            </a>
-            <a
-              href="https://fadogroup.com.au"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] border border-line-strong text-text-muted hover:border-accent/50 hover:text-text hover:-translate-y-0.5 transition-all duration-200"
-            >
-              {t('websiteBtn')}
             </a>
           </div>
         </div>

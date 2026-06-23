@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "FADO Group — Cross-Border Commerce & Logistics Ecosystem",
+    "title": "FADO Group — Cross-Border E-Commerce & Logistics Ecosystem",
     "description": "FADO Group: a multi-sector conglomerate operating a cross-border logistics, technology and retail ecosystem across 9 countries.",
-    "ogTitle": "FADO Group — Cross-Border Commerce & Logistics Ecosystem",
+    "ogTitle": "FADO Group — Cross-Border E-Commerce & Logistics Ecosystem",
     "ogDescription": "FADO Group: a multi-sector conglomerate operating a cross-border logistics, technology and retail ecosystem across 9 countries.",
-    "twitterTitle": "FADO Group — Cross-Border Commerce Ecosystem",
+    "twitterTitle": "FADO Group — Cross-Border E-Commerce & Logistics Ecosystem",
     "twitterDescription": "FADO Group: a multi-sector conglomerate operating a cross-border logistics, technology and retail ecosystem."
   },
   "nav": {
@@ -17,8 +17,8 @@
     "homeLabel": "FADO Group — Home"
   },
   "hero": {
-    "label": "FADO Group — Cross‑Border Commerce Ecosystem",
-    "headline1": "Commerce without",
+    "label": "FADO Group — Cross‑Border E-Commerce & Logistics Ecosystem",
+    "headline1": "E-Commerce without",
     "headline2": "borders.",
     "sub": "From an international shopping platform founded in 2011, FADO Group has grown into an ecosystem of 14+ brands across logistics, technology and retail — operating throughout Vietnam, Australia and 9+ countries worldwide.",
     "cta1": "Explore the ecosystem",
@@ -52,7 +52,7 @@
     "sectionLabel": "Brand ecosystem",
     "headline1": "Five business verticals,",
     "headline2": "one cross-border value chain.",
-    "sub": "Each brand within FADO Group solves a specific link in international commerce — from the moment an order is placed to the moment the product reaches the end customer, anywhere in the world.",
+    "sub": "Each brand within FADO Group solves a specific link in international e-commerce — from the moment an order is placed to the moment the product reaches the end customer, anywhere in the world.",
     "visitWebsite": "Visit website →",
     "websitePending": "Website coming soon",
     "countryVN": "Vietnam",
@@ -68,12 +68,12 @@
     "sectionLabel": "Partner with FADO Group",
     "headline1": "Ready to expand",
     "headline2": "your value chain with us?",
-    "sub": "Whether you are an investor, logistics partner or talented candidate — we are always looking for people to join our cross-border commerce journey.",
+    "sub": "Whether you are an investor, logistics partner or talented candidate — we are always looking for people to join our cross-border e-commerce journey.",
     "emailBtn": "contact@fadogroup.com.au",
     "websiteBtn": "fadogroup.com.au"
   },
   "footer": {
-    "tagline": "Cross-border commerce & logistics ecosystem.",
+    "tagline": "Cross-border e-commerce & logistics ecosystem.",
     "col1Title": "About",
     "col1Link1": "Company overview",
     "col1Link2": "Business verticals",
@@ -87,7 +87,19 @@
     "col4Title": "Contact",
     "privacyPolicy": "Privacy policy",
     "terms": "Terms of use",
-    "copyright": "© {year} FADO GROUP. ALL RIGHTS RESERVED."
+    "copyright": "© 2020 FADO GROUP. ALL RIGHTS RESERVED."
+  },
+  "news": {
+    "sectionLabel": "News & Events",
+    "title": "Latest Blogs",
+    "viewAll": "View blog",
+    "readMore": "Read blog",
+    "comingSoon": "Content coming soon",
+    "catProduct": "Product",
+    "catCorporate": "Corporate",
+    "catEvent": "Event",
+    "catCareer": "Careers",
+    "dateTbd": "Coming soon"
   },
   "brandPage": {
     "breadcrumb": "Ecosystem",
@@ -126,7 +138,7 @@
   },
   "segments": {
     "01": {
-      "title": "Logistics & Cross-Border Commerce",
+      "title": "Logistics & Cross-Border E-Commerce",
       "summary": "The operational core of FADO Group — purchasing, shipping, customs clearance and international delivery."
     },
     "02": {
@@ -134,7 +146,7 @@
       "summary": "The software infrastructure powering the entire operational ecosystem."
     },
     "03": {
-      "title": "Agriculture, Commerce & B2B Vietnam",
+      "title": "Agriculture, Trade & B2B Vietnam",
       "summary": "Exporting Vietnamese agricultural products worldwide and providing equipment and service solutions for domestic businesses."
     },
     "04": {
@@ -162,9 +174,9 @@
     "kayaks2fish": { "description": "Fishing kayaks & water sports accessories — 5 warehouses across Adelaide, Brisbane, Melbourne, Sydney and Perth. 10+ years serving ocean enthusiasts" }
   },
   "offices": {
-    "group1Title": "Headquarters & Vietnam",
-    "group2Title": "Asia-Pacific",
-    "group3Title": "Europe & North America",
+    "group1Title": "Australia",
+    "group2Title": "Vietnam",
+    "group3Title": "International",
     "hq_au": "Headquarters — Ultimo, New South Wales, Australia",
     "vn_dn": "Da Nang Branch",
     "vn_hcm": "Ho Chi Minh City — 3 offices",
@@ -172,7 +184,7 @@
     "vn_hn": "Hanoi Branch",
     "jp_tk": "Tokyo, Japan",
     "kr_sl": "Seoul, South Korea",
-    "cn_gx": "Dongxing, Guangxi, China",
+    "cn_gx": "Nanning, China",
     "kh_pp": "Phnom Penh, Cambodia",
     "au_bk": "Bankstown, Australia",
     "de_ff": "Frankfurt, Germany",

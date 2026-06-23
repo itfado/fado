@@ -7,16 +7,19 @@ export type Brand = {
 }
 
 export type Segment = {
-  index: string
+  index: string // số thứ tự hiển thị (01..05) theo thứ tự mới
+  key: 1 | 2 | 3 | 4 | 5 // nhóm gốc của brand (brand.segment) để lọc
+  titleKey: string // khóa i18n tiêu đề (gốc)
   color: string
 }
 
+// Thứ tự mới: mảng kinh doanh Úc lên trước, rồi Logistics & TMĐT xuyên biên giới
 export const segments: Segment[] = [
-  { index: '01', color: '#3b82f6' },
-  { index: '02', color: '#a855f7' },
-  { index: '03', color: '#10b981' },
-  { index: '04', color: '#f59e0b' },
-  { index: '05', color: '#06b6d4' },
+  { index: '01', key: 4, titleKey: '04', color: '#f59e0b' }, // Bán lẻ Gia đình — Úc
+  { index: '02', key: 5, titleKey: '05', color: '#06b6d4' }, // Hàng hải & Ngoài trời — Úc
+  { index: '03', key: 1, titleKey: '01', color: '#3b82f6' }, // Logistics & TMĐT xuyên biên giới
+  { index: '04', key: 2, titleKey: '02', color: '#a855f7' }, // Công nghệ Logistics
+  { index: '05', key: 3, titleKey: '03', color: '#10b981' }, // Nông nghiệp, Thương mại & B2B VN
 ]
 
 export const brands: Brand[] = [

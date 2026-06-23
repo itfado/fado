@@ -64,8 +64,25 @@ export default function TypingText({
   const done = count >= text.length
   const showCaret = started && (!done || persistentCaret)
 
+  const caret = (animate: boolean) => (
+    <span
+      style={{
+        display: 'inline-block',
+        width: '3px',
+        height: '1.05em',
+        marginLeft: '3px',
+        borderRadius: '2px',
+        transform: 'translateY(3px)',
+        background: 'var(--c-accent)',
+        boxShadow: animate ? '0 0 8px var(--c-accent), 0 0 2px var(--c-accent)' : 'none',
+        animation: animate ? 'caretBlink 1.05s ease-in-out infinite' : 'none',
+        verticalAlign: 'baseline',
+      }}
+    />
+  )
+
   return (
-    // Bản full ẩn giữ chỗ → layout cố định; chữ gõ phủ đè lên
+    // Bản full ẩn giữ chỗ (kèm con trỏ) → layout cố định, con trỏ không bị xuống dòng
     <span
       ref={wrapRef}
       className={className}
@@ -74,24 +91,11 @@ export default function TypingText({
     >
       <span aria-hidden="true" style={{ visibility: 'hidden' }}>
         {text}
+        {caret(false)}
       </span>
       <span aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
         {text.slice(0, count)}
-        {showCaret && (
-          <span
-            style={{
-              display: 'inline-block',
-              width: '3px',
-              height: '1.05em',
-              marginLeft: '3px',
-              borderRadius: '2px',
-              transform: 'translateY(3px)',
-              background: 'var(--c-accent)',
-              boxShadow: '0 0 8px var(--c-accent), 0 0 2px var(--c-accent)',
-              animation: 'caretBlink 1.05s ease-in-out infinite',
-            }}
-          />
-        )}
+        {showCaret && caret(true)}
       </span>
     </span>
   )

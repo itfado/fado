@@ -3,7 +3,6 @@ import Logo from './Logo'
 
 export default async function Footer() {
   const t = await getTranslations('footer')
-  const year = new Date().getFullYear()
 
   return (
     <footer className="border-t border-line" style={{ padding: '72px 24px 32px' }}>
@@ -50,7 +49,7 @@ export default async function Footer() {
 
       {/* Bottom bar */}
       <div className="max-w-container mx-auto pt-6 border-t border-line flex justify-between flex-wrap gap-3 text-[12.5px] text-text-faint">
-        <span>{t('copyright', { year })}</span>
+        <span>{t('copyright')}</span>
         <span>
           <a href="/chinh-sach-bao-mat" className="hover:text-text-muted transition-colors">{t('privacyPolicy')}</a>
           {' · '}

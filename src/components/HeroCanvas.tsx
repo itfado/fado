@@ -19,14 +19,12 @@ const MOUSE_RADIUS = 240
 const MOUSE_FORCE = 0.013   // gentle attraction when idle
 const BASE_SPEED = 0.32
 
-// Bảng màu đa sắc (đồng bộ màu 5 mảng + ember) — kiểu x.ai / Antigravity
+// Tông cam chủ đạo — nhiều sắc độ ember để vẫn có chiều sâu
 const PALETTE = [
   '255,90,31',   // ember
-  '59,130,246',  // blue
-  '168,85,247',  // violet
-  '16,185,129',  // green
-  '6,182,212',   // cyan
-  '245,158,11',  // amber
+  '255,122,71',  // ember soft
+  '255,150,96',  // ember light
+  '230,72,15',   // ember deep
 ]
 
 export default function HeroCanvas() {
@@ -107,12 +105,12 @@ export default function HeroCanvas() {
 
     function drawDot(p: Particle) {
       if (p.glow) {
-        ctx!.shadowColor = `rgba(${p.color},0.9)`
-        ctx!.shadowBlur = 10
+        ctx!.shadowColor = `rgba(${p.color},0.7)`
+        ctx!.shadowBlur = 7
       }
       ctx!.beginPath()
-      ctx!.arc(p.x, p.y, p.glow ? p.r * 1.4 : p.r, 0, Math.PI * 2)
-      ctx!.fillStyle = `rgba(${p.color},${p.opacity + (p.glow ? 0.25 : 0)})`
+      ctx!.arc(p.x, p.y, p.glow ? p.r * 1.3 : p.r, 0, Math.PI * 2)
+      ctx!.fillStyle = `rgba(${p.color},${p.opacity + (p.glow ? 0.15 : 0)})`
       ctx!.fill()
       ctx!.shadowBlur = 0
     }

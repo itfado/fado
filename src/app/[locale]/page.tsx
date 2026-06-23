@@ -1,7 +1,7 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import VideoShowcase from '@/components/VideoShowcase'
 import TransitionCanvas from '@/components/TransitionCanvas'
+import LatestBlogs from '@/components/LatestBlogs'
 import Stats from '@/components/Stats'
 import About from '@/components/About'
 import Ecosystem from '@/components/Ecosystem'
@@ -15,11 +15,11 @@ export default function Home() {
       <TransitionCanvas />
       <Nav />
       <Hero />
-      <VideoShowcase />
       <Stats />
       <About />
       <Ecosystem />
       <GlobalPresence />
+      <LatestBlogs />
       <Contact />
       <Footer />
     </main>

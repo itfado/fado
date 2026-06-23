@@ -1,35 +1,21 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter, JetBrains_Mono, Montserrat } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getTranslations, getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import '../globals.css'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-})
-
 const inter = Inter({
-  subsets: ['latin'],
+  subsets: ['latin', 'vietnamese'],
   weight: ['400', '500', '600'],
   variable: '--font-inter',
   display: 'swap',
 })
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-})
-
 const montserrat = Montserrat({
   subsets: ['latin', 'vietnamese'],
-  weight: ['200', '300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
   variable: '--font-montserrat',
   display: 'swap',
@@ -81,7 +67,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${montserrat.variable}`}
+      className={`${inter.variable} ${montserrat.variable}`}
       suppressHydrationWarning
     >
       <head>

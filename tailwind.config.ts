@@ -22,11 +22,12 @@ const config: Config = {
         ink: 'var(--c-ink)',
       },
       fontFamily: {
+        // Chỉ 2 font: Montserrat (tiêu đề/logo) + Inter (nội dung/UI/nhãn)
         display: ['var(--font-montserrat)', 'sans-serif'],
-        ui: ['var(--font-space-grotesk)', 'Inter', 'sans-serif'],
-        body: ['var(--font-inter)', 'sans-serif'],
-        mono: ['var(--font-jetbrains-mono)', 'monospace'],
         wordmark: ['var(--font-montserrat)', 'sans-serif'],
+        ui: ['var(--font-inter)', 'sans-serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
+        mono: ['var(--font-inter)', 'sans-serif'],
       },
       maxWidth: {
         container: '1180px',

@@ -2,155 +2,104 @@
 
 import { useEffect, useRef } from 'react'
 
-const COUNT = 32
-const MAX_DIST = 155
-const SPEED = 0.16   // slower and dreamier than hero (0.32)
-const PARTICLE_OPACITY_MIN = 0.15
-const PARTICLE_OPACITY_MAX = 0.50
+/* Hiệu ứng "phễu": khi cuộn từ Hero xuống section dưới, các hạt cam (và quầng
+   sáng cam) chảy xuống và hội tụ dần về tâm như rót qua phễu. Opacity gắn theo
+   vị trí cuộn nên chỉ hiện trong vùng chuyển tiếp hero → nội dung. */
+
+const COUNT = 80
 
 export default function TransitionCanvas() {
-  const wrapRef   = useRef<HTMLDivElement>(null)
+  const wrapRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  // parallax offset — updated by scroll listener, read by RAF loop
-  const parallaxY = useRef(0)
   const opacityVal = useRef(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
-    const wrap   = wrapRef.current
+    const wrap = wrapRef.current
     if (!canvas || !wrap) return
-
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    // Màu "mực" theo theme (trắng ở dark, đậm ở light)
-    function readInk(): string {
-      const hex = getComputedStyle(document.documentElement).getPropertyValue('--c-ink').trim()
-      let h = hex.replace('#', '')
-      if (h.length === 3) h = h.split('').map((c) => c + c).join('')
-      const r = parseInt(h.slice(0, 2), 16) || 255
-      const g = parseInt(h.slice(2, 4), 16) || 255
-      const b = parseInt(h.slice(4, 6), 16) || 255
-      return `${r},${g},${b}`
-    }
-    let inkRGB = readInk()
-    const themeObs = new MutationObserver(() => { inkRGB = readInk() })
-    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
-
-    let W = 0, H = 0
-
-    interface Pt { x:number; y:number; vx:number; vy:number; r:number; op:number }
-    let pts: Pt[] = []
-
+    let W = 0, H = 0, dpr = 1
     function resize() {
-      if (!canvas) return
       W = window.innerWidth
       H = window.innerHeight
-      canvas.width  = W
-      canvas.height = H
-      // re-scatter any particles that are now out of bounds
-      pts.forEach(p => {
-        if (p.x > W) p.x = Math.random() * W
-        if (p.y > H) p.y = Math.random() * H
-      })
+      dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas!.width = W * dpr
+      canvas!.height = H * dpr
+      canvas!.style.width = W + 'px'
+      canvas!.style.height = H + 'px'
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
-
-    function initParticles() {
-      pts = Array.from({ length: COUNT }, () => ({
-        x:  Math.random() * W,
-        y:  Math.random() * H,
-        vx: (Math.random() - 0.5) * SPEED,
-        vy: (Math.random() - 0.5) * SPEED,
-        r:  Math.random() * 1.4 + 0.5,
-        op: PARTICLE_OPACITY_MIN + Math.random() * (PARTICLE_OPACITY_MAX - PARTICLE_OPACITY_MIN),
-      }))
-    }
-
     resize()
-    initParticles()
     window.addEventListener('resize', resize, { passive: true })
 
-    // ── Scroll-driven opacity + parallax camera movement ──────────────────
-    function onScroll() {
-      const sy  = window.scrollY
-      const vh  = window.innerHeight
-
-      // Fade in: from 45 % to 100 % of hero height
-      const fin  = Math.max(0, Math.min(1, (sy - vh * 0.45) / (vh * 0.55)))
-      // Fade out: starting ~300 px after pin end (heroHeight + 580 pin + 300 buffer)
-      const pinEnd = vh + 580
-      const fout = Math.max(0, Math.min(1, (sy - pinEnd) / 280))
-      opacityVal.current = fin * (1 - fout) * 0.82
-
-      // Parallax: particle field drifts UP as camera moves down
-      // gentle: 0.055 × scroll → 55 px shift over 1000 px of scroll
-      parallaxY.current = -sy * 0.055
+    type P = { x0: number; y: number; r: number; op: number; sp: number }
+    let pts: P[] = []
+    function init() {
+      pts = Array.from({ length: COUNT }, () => ({
+        x0: Math.random(), // 0..1 vị trí ngang gốc
+        y: Math.random() * H,
+        r: Math.random() * 1.7 + 0.6,
+        op: 0.2 + Math.random() * 0.55,
+        sp: 40 + Math.random() * 90, // px/giây rơi xuống
+      }))
     }
+    init()
 
+    const clamp = (v: number) => Math.max(0, Math.min(1, v))
+    function onScroll() {
+      const sy = window.scrollY
+      const vh = window.innerHeight
+      const fin = clamp((sy - vh * 0.4) / (vh * 0.5))
+      const fout = clamp((sy - vh * 1.5) / (vh * 0.45))
+      opacityVal.current = fin * (1 - fout)
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll() // init
+    onScroll()
 
-    // ── RAF draw loop ──────────────────────────────────────────────────────
-    let rafId: number
+    let raf = 0
+    let last = performance.now()
+    function draw(now: number) {
+      const dt = Math.min(0.05, (now - last) / 1000)
+      last = now
+      ctx!.clearRect(0, 0, W, H)
+      const op = opacityVal.current
+      if (op > 0.002) {
+        const cx = W / 2
 
-    function draw() {
-      if (!ctx) return
-      ctx.clearRect(0, 0, W, H)
+        // Quầng phễu: cam đậm ở trên, hội tụ & nhạt dần xuống
+        const cone = ctx!.createLinearGradient(0, 0, 0, H)
+        cone.addColorStop(0, `rgba(255,90,31,${0.06 * op})`)
+        cone.addColorStop(0.55, `rgba(255,90,31,${0.03 * op})`)
+        cone.addColorStop(1, 'rgba(255,90,31,0)')
+        ctx!.fillStyle = cone
+        ctx!.fillRect(0, 0, W, H)
 
-      const py = parallaxY.current
-
-      // Update + wrap particles
-      for (const p of pts) {
-        p.x += p.vx
-        p.y += p.vy
-        if (p.x < -10) p.x = W + 10
-        if (p.x > W + 10) p.x = -10
-        if (p.y < -10) p.y = H + 10
-        if (p.y > H + 10) p.y = -10
-      }
-
-      ctx.save()
-      ctx.translate(0, py)  // camera-down parallax shift
-
-      // Connection lines
-      for (let i = 0; i < pts.length; i++) {
-        for (let j = i + 1; j < pts.length; j++) {
-          const dx   = pts[i].x - pts[j].x
-          const dy   = pts[i].y - pts[j].y
-          const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < MAX_DIST) {
-            const a = (1 - dist / MAX_DIST) * 0.09
-            ctx.beginPath()
-            ctx.moveTo(pts[i].x, pts[i].y)
-            ctx.lineTo(pts[j].x, pts[j].y)
-            ctx.strokeStyle = `rgba(${inkRGB},${a})`
-            ctx.lineWidth = 0.5
-            ctx.stroke()
-          }
+        // Hạt rơi xuống + hội tụ về tâm (phễu)
+        for (const p of pts) {
+          if (!reduce) p.y += p.sp * dt * (0.5 + op)
+          if (p.y > H + 12) p.y = -12
+          const t = clamp(p.y / H) // 0 trên → 1 dưới
+          const spread = (p.x0 - 0.5) * W * (1 - t * 0.82) // càng xuống càng tụ
+          const x = cx + spread
+          ctx!.beginPath()
+          ctx!.arc(x, p.y, p.r * (1 - t * 0.3), 0, Math.PI * 2)
+          ctx!.fillStyle = `rgba(255,${90 + Math.round(t * 45)},31,${p.op * op})`
+          ctx!.shadowColor = 'rgba(255,90,31,0.8)'
+          ctx!.shadowBlur = 6
+          ctx!.fill()
+          ctx!.shadowBlur = 0
         }
       }
-
-      // Dots
-      for (const p of pts) {
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(${inkRGB},${p.op})`
-        ctx.fill()
-      }
-
-      ctx.restore()
-
-      // Sync CSS opacity
-      if (wrap) wrap.style.opacity = String(opacityVal.current)
-
-      rafId = requestAnimationFrame(draw)
+      if (wrap) wrap.style.opacity = String(op)
+      raf = requestAnimationFrame(draw)
     }
-
-    draw()
+    raf = requestAnimationFrame(draw)
 
     return () => {
-      cancelAnimationFrame(rafId)
-      themeObs.disconnect()
+      cancelAnimationFrame(raf)
       window.removeEventListener('resize', resize)
       window.removeEventListener('scroll', onScroll)
     }
@@ -160,25 +109,8 @@ export default function TransitionCanvas() {
     <div
       ref={wrapRef}
       aria-hidden="true"
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 3,          // above page bg, below hero content (z-10)
-        opacity: 0,
-        pointerEvents: 'none',
-      }}
+      style={{ position: 'fixed', inset: 0, zIndex: 3, opacity: 0, pointerEvents: 'none' }}
     >
-      {/* Subtle amber glow — parallaxes with the canvas, intensifies during transition */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: [
-            'radial-gradient(ellipse 70% 55% at 50% 42%, rgba(255,90,31,0.09) 0%, transparent 65%)',
-            'radial-gradient(ellipse 45% 35% at 50% 72%, rgba(255,90,31,0.05) 0%, transparent 60%)',
-          ].join(', '),
-        }}
-      />
       <canvas ref={canvasRef} style={{ display: 'block', width: '100%', height: '100%' }} />
     </div>
   )

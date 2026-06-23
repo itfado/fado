@@ -71,7 +71,7 @@ export default function Nav() {
 
           <a
             href="#contact"
-            className="bg-accent text-white font-semibold px-[18px] py-2 rounded-full hover:bg-accent-soft transition-colors duration-200"
+            className="border border-accent text-accent font-semibold px-[18px] py-2 rounded-full hover:bg-accent hover:text-white transition-colors duration-200"
           >
             {t('contact')}
           </a>

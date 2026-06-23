@@ -39,7 +39,7 @@ export default async function About() {
           <FadeIn delay={0.24}>
             <a
               href="#contact"
-              className="inline-flex items-center justify-center bg-accent text-white font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(255,90,31,0.5)] transition-all duration-200"
+              className="inline-flex items-center justify-center border border-accent text-accent font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:bg-accent hover:text-white hover:-translate-y-0.5 transition-all duration-200"
             >
               {t('cta')}
             </a>

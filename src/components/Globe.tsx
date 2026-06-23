@@ -15,7 +15,7 @@ const CITIES: City[] = [
   { code: 'vn', lat: 16.05, lon: 108.2, label: 'Đà Nẵng' },
   { code: 'jp', lat: 35.68, lon: 139.69, label: 'Tokyo' },
   { code: 'kr', lat: 37.57, lon: 126.98, label: 'Seoul' },
-  { code: 'cn', lat: 22.82, lon: 108.32, label: 'Quảng Tây' },
+  { code: 'cn', lat: 22.82, lon: 108.32, label: 'Nam Ninh' },
   { code: 'kh', lat: 11.56, lon: 104.92, label: 'Phnom Penh' },
   { code: 'de', lat: 50.11, lon: 8.68, label: 'Frankfurt' },
   { code: 'gb', lat: 51.51, lon: -0.13, label: 'London' },

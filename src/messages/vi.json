@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "FADO Group — Hệ sinh thái Thương mại & Logistics Xuyên Biên Giới",
+    "title": "FADO Group — Hệ sinh thái Thương mại điện tử & Logistics Xuyên Biên Giới",
     "description": "FADO Group: tập đoàn đa ngành vận hành hệ sinh thái logistics, công nghệ và bán lẻ xuyên biên giới trên 9 quốc gia.",
-    "ogTitle": "FADO Group — Hệ sinh thái Thương mại & Logistics Xuyên Biên Giới",
+    "ogTitle": "FADO Group — Hệ sinh thái Thương mại điện tử & Logistics Xuyên Biên Giới",
     "ogDescription": "FADO Group: tập đoàn đa ngành vận hành hệ sinh thái logistics, công nghệ và bán lẻ xuyên biên giới trên 9 quốc gia.",
-    "twitterTitle": "FADO Group — Cross-Border Commerce Ecosystem",
+    "twitterTitle": "FADO Group — Cross-Border E-Commerce & Logistics Ecosystem",
     "twitterDescription": "FADO Group: tập đoàn đa ngành vận hành hệ sinh thái logistics, công nghệ và bán lẻ xuyên biên giới."
   },
   "nav": {
@@ -17,7 +17,7 @@
     "homeLabel": "FADO Group — Trang chủ"
   },
   "hero": {
-    "label": "FADO Group — Cross‑Border Commerce Ecosystem",
+    "label": "FADO Group — Cross‑Border E-Commerce & Logistics Ecosystem",
     "headline1": "Kết nối thương mại",
     "headline2": "không biên giới.",
     "sub": "Từ một nền tảng mua hàng quốc tế năm 2011, FADO Group đã mở rộng thành hệ sinh thái gồm 14+ thương hiệu về logistics, công nghệ và bán lẻ — vận hành xuyên suốt Việt Nam, Úc và hơn 9 quốc gia trên toàn cầu.",
@@ -52,7 +52,7 @@
     "sectionLabel": "Hệ sinh thái thương hiệu",
     "headline1": "Năm mảng kinh doanh,",
     "headline2": "một chuỗi giá trị xuyên biên giới.",
-    "sub": "Mỗi thương hiệu trong FADO Group giải quyết một mắt xích cụ thể của thương mại quốc tế — từ lúc đơn hàng được đặt đến khi sản phẩm có mặt trong tay người dùng cuối, ở bất kỳ quốc gia nào.",
+    "sub": "Mỗi thương hiệu trong FADO Group giải quyết một mắt xích cụ thể của thương mại điện tử quốc tế — từ lúc đơn hàng được đặt đến khi sản phẩm có mặt trong tay người dùng cuối, ở bất kỳ quốc gia nào.",
     "visitWebsite": "Truy cập website →",
     "websitePending": "Website đang cập nhật",
     "countryVN": "Việt Nam",
@@ -68,12 +68,12 @@
     "sectionLabel": "Hợp tác cùng FADO Group",
     "headline1": "Sẵn sàng mở rộng",
     "headline2": "chuỗi giá trị cùng chúng tôi?",
-    "sub": "Dù bạn là nhà đầu tư, đối tác logistics hay ứng viên tài năng — chúng tôi luôn tìm kiếm những người đồng hành cho hành trình thương mại không biên giới.",
+    "sub": "Dù bạn là nhà đầu tư, đối tác logistics hay ứng viên tài năng — chúng tôi luôn tìm kiếm những người đồng hành cho hành trình thương mại điện tử không biên giới.",
     "emailBtn": "contact@fadogroup.com.au",
     "websiteBtn": "fadogroup.com.au"
   },
   "footer": {
-    "tagline": "Hệ sinh thái thương mại & logistics xuyên biên giới.",
+    "tagline": "Hệ sinh thái thương mại điện tử & logistics xuyên biên giới.",
     "col1Title": "Về chúng tôi",
     "col1Link1": "Tổng quan công ty",
     "col1Link2": "Lĩnh vực hoạt động",
@@ -87,7 +87,19 @@
     "col4Title": "Liên hệ",
     "privacyPolicy": "Chính sách bảo mật",
     "terms": "Điều khoản sử dụng",
-    "copyright": "© {year} FADO GROUP. ALL RIGHTS RESERVED."
+    "copyright": "© 2020 FADO GROUP. ALL RIGHTS RESERVED."
+  },
+  "news": {
+    "sectionLabel": "Tin tức & Sự kiện",
+    "title": "Tin tức mới nhất",
+    "viewAll": "Xem tất cả",
+    "readMore": "Đọc bài",
+    "comingSoon": "Nội dung sắp ra mắt",
+    "catProduct": "Sản phẩm",
+    "catCorporate": "Tập đoàn",
+    "catEvent": "Sự kiện",
+    "catCareer": "Tuyển dụng",
+    "dateTbd": "Sắp ra mắt"
   },
   "brandPage": {
     "breadcrumb": "Hệ sinh thái",
@@ -126,7 +138,7 @@
   },
   "segments": {
     "01": {
-      "title": "Logistics & Thương mại xuyên biên giới",
+      "title": "Logistics & Thương mại điện tử xuyên biên giới",
       "summary": "Lõi vận hành của FADO Group — mua hộ, vận chuyển, hải quan và giao nhận quốc tế."
     },
     "02": {
@@ -162,9 +174,9 @@
     "kayaks2fish": { "description": "Kayak câu cá & phụ kiện thể thao nước — 5 kho hàng tại Adelaide, Brisbane, Melbourne, Sydney, Perth. 10+ năm phục vụ người đam mê biển" }
   },
   "offices": {
-    "group1Title": "Trụ sở & Việt Nam",
-    "group2Title": "Châu Á – Thái Bình Dương",
-    "group3Title": "Châu Âu & Bắc Mỹ",
+    "group1Title": "Úc",
+    "group2Title": "Việt Nam",
+    "group3Title": "Quốc tế",
     "hq_au": "Trụ sở chính — Ultimo, New South Wales, Úc",
     "vn_dn": "Chi nhánh Đà Nẵng",
     "vn_hcm": "Văn phòng TP. Hồ Chí Minh — 3 cơ sở",
@@ -172,7 +184,7 @@
     "vn_hn": "Chi nhánh Hà Nội",
     "jp_tk": "Tokyo, Nhật Bản",
     "kr_sl": "Seoul, Hàn Quốc",
-    "cn_gx": "Đông Hưng, Quảng Tây, Trung Quốc",
+    "cn_gx": "Nam Ninh, Trung Quốc",
     "kh_pp": "Phnom Penh, Campuchia",
     "au_bk": "Bankstown, Úc",
     "de_ff": "Frankfurt, Đức",
