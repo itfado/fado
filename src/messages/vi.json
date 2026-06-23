@@ -159,19 +159,19 @@
     }
   },
   "brands": {
-    "fado-vn": { "description": "Nền tảng mua hàng quốc tế hơn 5 tỷ sản phẩm chính hãng từ Mỹ, Nhật, Đức, Anh cho người tiêu dùng Việt Nam" },
-    "proship": { "description": "Vận tải đa phương thức: container đường bộ, đường biển, đường sắt, hải quan, kho bãi — 7.400+ tấn mỗi tháng" },
-    "ratraco-solutions": { "description": "Vận tải hàng hóa đường sắt liên vận quốc tế Việt Nam – Trung Quốc – EU — 310 container mỗi tháng" },
+    "fado-vn": { "description": "Nền tảng mua hàng quốc tế — đưa hàng chính hãng từ Mỹ, Nhật, Đức, Anh đến người tiêu dùng Việt Nam" },
+    "proship": { "description": "Vận tải đa phương thức: container đường bộ, đường biển, đường sắt — kèm dịch vụ hải quan và kho bãi" },
+    "ratraco-solutions": { "description": "Vận tải hàng hóa đường sắt liên vận quốc tế Việt Nam – Trung Quốc – EU" },
     "fado-solutions": { "description": "Logistics trọn gói xuyên biên giới: đường biển, hàng không, đường bộ, IOR, môi giới hải quan, kho & fulfilment" },
-    "woka": { "description": "Bộ phần mềm logistics tích hợp AI: đường bộ, đường sắt, last-mile, freight forwarding, fulfilment — xây từ 10+ năm vận hành thực tế" },
-    "fado-agri": { "description": "Xuất khẩu nông sản Việt Nam — dừa, trái cây nhiệt đới ra 10+ quốc gia, 500+ container mỗi năm. \"A Promise In Every Fruit\"" },
-    "goprint": { "description": "Cho thuê máy photocopy, máy in màu Ricoh & Toshiba trọn gói — giao miễn phí, hỗ trợ kỹ thuật 24/7 cho doanh nghiệp tại TP.HCM" },
-    "fanaro-solutions": { "description": "Hệ thống quạt công nghiệp HVLS (High Volume Low Speed) — giải pháp lưu thông không khí toàn diện cho kho bãi, nhà máy, tiết kiệm 50%+ điện năng" },
-    "baby-train": { "description": "Chuỗi cửa hàng bán lẻ hàng đầu Melbourne — xe đẩy, ghế ô tô, cũi & đồ sơ sinh. \"Run by parents, for parents\"" },
+    "woka": { "description": "Bộ phần mềm logistics tích hợp AI: đường bộ, đường sắt, last-mile, freight forwarding, fulfilment — đúc kết từ vận hành thực tế" },
+    "fado-agri": { "description": "Xuất khẩu nông sản Việt Nam — dừa và trái cây nhiệt đới ra thị trường quốc tế. \"A Promise In Every Fruit\"" },
+    "goprint": { "description": "Cho thuê máy photocopy, máy in màu Ricoh & Toshiba trọn gói — giao miễn phí, hỗ trợ kỹ thuật tận nơi cho doanh nghiệp tại TP.HCM" },
+    "fanaro-solutions": { "description": "Hệ thống quạt công nghiệp HVLS — giải pháp lưu thông không khí toàn diện, tối ưu điện năng cho kho bãi và nhà máy" },
+    "baby-train": { "description": "Chuỗi cửa hàng bán lẻ tại Melbourne — xe đẩy, ghế ô tô, cũi & đồ sơ sinh. \"Run by parents, for parents\"" },
     "star-kidz": { "description": "Thương hiệu nội thất & đồ dùng trẻ em cao cấp — nôi CosmO, xe đẩy Adaptii, ghế ăn Bimberi. \"Affordable Luxury\"" },
     "nanny-annie": { "description": "Nền tảng bán lẻ trực tuyến đồ sơ sinh & nội thất trẻ em — giao hàng toàn nước Úc, hỗ trợ Afterpay" },
-    "ch-smith-marine": { "description": "Từ 1884 — thiết bị hàng hải, điện tử tàu thuyền & đồ câu cá tại Melbourne. Một trong những nhà bán lẻ hàng hải lâu đời nhất Úc" },
-    "kayaks2fish": { "description": "Kayak câu cá & phụ kiện thể thao nước — 5 kho hàng tại Adelaide, Brisbane, Melbourne, Sydney, Perth. 10+ năm phục vụ người đam mê biển" }
+    "ch-smith-marine": { "description": "Thiết bị hàng hải, điện tử tàu thuyền & đồ câu cá tại Melbourne — nhà bán lẻ hàng hải uy tín lâu đời tại Úc" },
+    "kayaks2fish": { "description": "Kayak câu cá & phụ kiện thể thao nước — phục vụ cộng đồng đam mê biển trên khắp nước Úc" }
   },
   "offices": {
     "group1Title": "Úc",

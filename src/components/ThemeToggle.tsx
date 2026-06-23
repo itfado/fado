@@ -9,7 +9,19 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
   const [theme, setTheme] = useState<Theme | null>(null)
 
   useEffect(() => {
-    const current = (document.documentElement.getAttribute('data-theme') as Theme) || 'dark'
+    // Re-apply theme on every mount (locale navigation wipes data-theme from DOM)
+    let current: Theme = 'dark'
+    try {
+      const stored = localStorage.getItem('theme')
+      if (stored === 'light' || stored === 'dark') {
+        current = stored
+      } else {
+        current = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+      }
+    } catch {
+      current = (document.documentElement.getAttribute('data-theme') as Theme) || 'dark'
+    }
+    document.documentElement.setAttribute('data-theme', current)
     setTheme(current)
   }, [])
 

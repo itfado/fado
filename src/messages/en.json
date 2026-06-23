@@ -159,19 +159,19 @@
     }
   },
   "brands": {
-    "fado-vn": { "description": "International shopping platform with 5+ billion authentic products from the US, Japan, Germany and the UK for Vietnamese consumers" },
-    "proship": { "description": "Multimodal freight: container, road, sea, rail, customs, warehousing — 7,400+ tons/month" },
-    "ratraco-solutions": { "description": "International railway freight Vietnam – China – EU — 310 containers/month" },
+    "fado-vn": { "description": "International shopping platform — bringing authentic products from the US, Japan, Germany and the UK to Vietnamese consumers" },
+    "proship": { "description": "Multimodal freight: container, road, sea and rail — with customs and warehousing services" },
+    "ratraco-solutions": { "description": "International railway freight across Vietnam – China – EU" },
     "fado-solutions": { "description": "End-to-end cross-border logistics: sea, air, road, IOR, customs brokerage, warehousing & fulfilment" },
-    "woka": { "description": "AI-powered logistics software suite: road, rail, last-mile, freight forwarding, fulfilment — built on 10+ years of real operations" },
-    "fado-agri": { "description": "Vietnamese agricultural exports — coconuts, tropical fruits to 10+ countries, 500+ containers/year. \"A Promise In Every Fruit\"" },
-    "goprint": { "description": "Ricoh & Toshiba photocopier and printer rental — free delivery, 24/7 technical support for businesses in Ho Chi Minh City" },
-    "fanaro-solutions": { "description": "HVLS industrial fan systems — comprehensive air circulation solutions for warehouses and factories, saving 50%+ energy" },
-    "baby-train": { "description": "Melbourne's leading baby retail chain — prams, car seats, cots & nursery essentials. \"Run by parents, for parents\"" },
+    "woka": { "description": "AI-powered logistics software suite: road, rail, last-mile, freight forwarding, fulfilment — built on real-world operations" },
+    "fado-agri": { "description": "Vietnamese agricultural exports — coconuts and tropical fruits to international markets. \"A Promise In Every Fruit\"" },
+    "goprint": { "description": "Ricoh & Toshiba photocopier and printer rental — free delivery, on-site technical support for businesses in Ho Chi Minh City" },
+    "fanaro-solutions": { "description": "HVLS industrial fan systems — comprehensive, energy-efficient air circulation solutions for warehouses and factories" },
+    "baby-train": { "description": "Baby retail chain in Melbourne — prams, car seats, cots & nursery essentials. \"Run by parents, for parents\"" },
     "star-kidz": { "description": "Premium baby furniture & nursery brand — CosmO cots, Adaptii prams, Bimberi high chairs. \"Affordable Luxury\"" },
     "nanny-annie": { "description": "Online baby & children's furniture retailer — nationwide delivery across Australia, Afterpay available" },
-    "ch-smith-marine": { "description": "Est. 1884 — marine hardware, boat electronics & fishing tackle in Melbourne. One of Australia's oldest marine retailers" },
-    "kayaks2fish": { "description": "Fishing kayaks & water sports accessories — 5 warehouses across Adelaide, Brisbane, Melbourne, Sydney and Perth. 10+ years serving ocean enthusiasts" }
+    "ch-smith-marine": { "description": "Marine hardware, boat electronics & fishing tackle in Melbourne — a long-established, trusted Australian marine retailer" },
+    "kayaks2fish": { "description": "Fishing kayaks & water sports accessories — serving ocean enthusiasts across Australia" }
   },
   "offices": {
     "group1Title": "Australia",
