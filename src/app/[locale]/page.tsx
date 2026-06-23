@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import VideoShowcase from '@/components/VideoShowcase'
+import TransitionCanvas from '@/components/TransitionCanvas'
 import Stats from '@/components/Stats'
 import About from '@/components/About'
 import Ecosystem from '@/components/Ecosystem'
@@ -11,6 +12,7 @@ import Footer from '@/components/Footer'
 export default function Home() {
   return (
     <main>
+      <TransitionCanvas />
       <Nav />
       <Hero />
       <VideoShowcase />

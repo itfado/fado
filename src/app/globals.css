@@ -64,6 +64,12 @@ img {
   }
 }
 
+@keyframes particleFloat {
+  0%,  100% { transform: translateY(0)     scale(1);    opacity: 1;    }
+  35%        { transform: translateY(-9px)  scale(1.12); opacity: 0.45; }
+  70%        { transform: translateY(-5px)  scale(0.92); opacity: 0.70; }
+}
+
 /* Hero entrance — expo-out easing, signature of premium sites */
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(22px); }
