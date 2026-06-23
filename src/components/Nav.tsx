@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { useRouter, usePathname } from '@/i18n/navigation'
 import Logo from './Logo'
+import ThemeToggle from './ThemeToggle'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -34,7 +35,7 @@ export default function Nav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
         scrolled
-          ? 'border-b border-line bg-black/80 backdrop-blur-md py-3'
+          ? 'border-b border-line bg-bg/80 backdrop-blur-md py-3'
           : 'border-b border-transparent py-[18px]'
       }`}
     >
@@ -50,16 +51,19 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="hover:text-white transition-colors duration-200"
+              className="hover:text-text transition-colors duration-200"
             >
               {l.label}
             </a>
           ))}
 
+          {/* Theme toggle */}
+          <ThemeToggle />
+
           {/* Language toggle */}
           <button
             onClick={toggleLocale}
-            className="font-mono text-[12px] tracking-[0.08em] border border-line-strong px-3 py-1.5 rounded-full hover:border-white/40 hover:text-white transition-all duration-200"
+            className="font-mono text-[12px] tracking-[0.08em] border border-line-strong px-3 py-1.5 rounded-full hover:border-accent/50 hover:text-text transition-all duration-200"
             aria-label={locale === 'vi' ? 'Switch to English' : 'Chuyển sang tiếng Việt'}
           >
             {locale === 'vi' ? 'EN' : 'VI'}
@@ -79,9 +83,9 @@ export default function Nav() {
           onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
         >
-          <span className="w-[22px] h-0.5 bg-white block" />
-          <span className="w-[22px] h-0.5 bg-white block" />
-          <span className="w-[22px] h-0.5 bg-white block" />
+          <span className="w-[22px] h-0.5 bg-ink block" />
+          <span className="w-[22px] h-0.5 bg-ink block" />
+          <span className="w-[22px] h-0.5 bg-ink block" />
         </button>
       </div>
 
@@ -92,7 +96,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-text-muted hover:text-white transition-colors"
+              className="text-text-muted hover:text-text transition-colors"
               onClick={() => setMobileOpen(false)}
             >
               {l.label}
@@ -100,14 +104,14 @@ export default function Nav() {
           ))}
           <a
             href="#contact"
-            className="text-text-muted hover:text-white transition-colors"
+            className="text-text-muted hover:text-text transition-colors"
             onClick={() => setMobileOpen(false)}
           >
             {t('contact')}
           </a>
           <button
             onClick={() => { toggleLocale(); setMobileOpen(false) }}
-            className="text-left font-mono text-[12px] tracking-[0.08em] text-text-muted hover:text-white transition-colors"
+            className="text-left font-mono text-[12px] tracking-[0.08em] text-text-muted hover:text-text transition-colors"
           >
             {locale === 'vi' ? '🌐 English' : '🌐 Tiếng Việt'}
           </button>

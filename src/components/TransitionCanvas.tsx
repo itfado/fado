@@ -23,6 +23,20 @@ export default function TransitionCanvas() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    // Màu "mực" theo theme (trắng ở dark, đậm ở light)
+    function readInk(): string {
+      const hex = getComputedStyle(document.documentElement).getPropertyValue('--c-ink').trim()
+      let h = hex.replace('#', '')
+      if (h.length === 3) h = h.split('').map((c) => c + c).join('')
+      const r = parseInt(h.slice(0, 2), 16) || 255
+      const g = parseInt(h.slice(2, 4), 16) || 255
+      const b = parseInt(h.slice(4, 6), 16) || 255
+      return `${r},${g},${b}`
+    }
+    let inkRGB = readInk()
+    const themeObs = new MutationObserver(() => { inkRGB = readInk() })
+    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
+
     let W = 0, H = 0
 
     interface Pt { x:number; y:number; vx:number; vy:number; r:number; op:number }
@@ -109,7 +123,7 @@ export default function TransitionCanvas() {
             ctx.beginPath()
             ctx.moveTo(pts[i].x, pts[i].y)
             ctx.lineTo(pts[j].x, pts[j].y)
-            ctx.strokeStyle = `rgba(255,255,255,${a})`
+            ctx.strokeStyle = `rgba(${inkRGB},${a})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
@@ -120,7 +134,7 @@ export default function TransitionCanvas() {
       for (const p of pts) {
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(255,255,255,${p.op})`
+        ctx.fillStyle = `rgba(${inkRGB},${p.op})`
         ctx.fill()
       }
 
@@ -136,6 +150,7 @@ export default function TransitionCanvas() {
 
     return () => {
       cancelAnimationFrame(rafId)
+      themeObs.disconnect()
       window.removeEventListener('resize', resize)
       window.removeEventListener('scroll', onScroll)
     }

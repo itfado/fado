@@ -1,14 +1,55 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
+/* ─── Theme tokens ─────────────────────────────────────────────────────────
+   Dark là mặc định (giữ nguyên giao diện cũ). Light kích hoạt khi
+   <html data-theme="light">. Script no-flash trong layout set thuộc tính này
+   trước khi paint nên không bị nháy. */
 :root {
-  --accent: #FF5A1F;
+  --c-bg: #000000;
+  --c-bg-elevated: #0a0a0a;
+  --c-bg-card: #121212;
+  --c-bg-card-hover: #1a1a1a;
+  --c-line: rgba(255, 255, 255, 0.10);
+  --c-line-strong: rgba(255, 255, 255, 0.22);
+  --c-text: #ffffff;
+  --c-text-muted: #a3a3a3;
+  --c-text-faint: #5c5c5c;
+  --c-accent: #ff5a1f;
+  --c-accent-soft: #ff7a47;
+  /* "mực" = màu tiền cảnh cùng tông nền-đảo: trắng trên tối */
+  --c-ink: #ffffff;
+
+  --accent: var(--c-accent);
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --c-bg: #ffffff;
+  --c-bg-elevated: #f6f6f7;
+  --c-bg-card: #ffffff;
+  --c-bg-card-hover: #f0f0f2;
+  --c-line: rgba(0, 0, 0, 0.10);
+  --c-line-strong: rgba(0, 0, 0, 0.20);
+  --c-text: #0a0a0b;
+  --c-text-muted: #55555c;
+  --c-text-faint: #9a9aa2;
+  --c-accent: #ff5a1f;
+  --c-accent-soft: #e8480f;
+  --c-ink: #0a0a0b;
+  color-scheme: light;
+}
+
+/* Chuyển theme mượt, nhưng không làm chậm animation nội dung */
+:root {
+  --theme-transition: background-color 0.4s var(--ease), color 0.4s var(--ease),
+    border-color 0.4s var(--ease);
 }
 
 ::selection {
   background: var(--accent);
-  color: #000000;
+  color: #ffffff;
 }
 
 *,
@@ -23,12 +64,13 @@ html {
 
 body {
   margin: 0;
-  background: #000000;
-  color: #ffffff;
+  background: var(--c-bg);
+  color: var(--c-text);
   font-family: var(--font-inter), sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: var(--theme-transition);
 }
 
 a {
@@ -85,6 +127,34 @@ img {
   0% { top: -100%; }
   60% { top: 100%; }
   100% { top: 100%; }
+}
+
+/* Caret cho hiệu ứng gõ chữ */
+@keyframes caretBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Aurora đa sắc — nhiều quầng màu mềm dịch chuyển chậm (x.ai / Antigravity) */
+.hero-aurora {
+  background:
+    radial-gradient(38% 44% at 28% 32%, rgba(255, 90, 31, 0.30), transparent 70%),
+    radial-gradient(34% 40% at 72% 36%, rgba(168, 85, 247, 0.24), transparent 70%),
+    radial-gradient(40% 46% at 58% 66%, rgba(59, 130, 246, 0.22), transparent 72%),
+    radial-gradient(30% 36% at 38% 70%, rgba(6, 182, 212, 0.18), transparent 70%);
+  filter: blur(14px);
+  animation: auroraShift 18s ease-in-out infinite alternate;
+}
+:root[data-theme='light'] .hero-aurora {
+  opacity: 0.55;
+}
+@keyframes auroraShift {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1.05); }
+  50%  { transform: translate3d(3%, 2%, 0) scale(1.12); }
+  100% { transform: translate3d(-2%, 3%, 0) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora { animation: none; }
 }
 
 @keyframes pulse {

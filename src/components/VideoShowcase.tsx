@@ -86,9 +86,10 @@ export default function VideoShowcase() {
 
   return (
     <section
+      id="video"
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ minHeight: '100vh', background: '#000' }}
+      style={{ minHeight: '100vh', background: 'var(--c-bg)' }}
     >
       {/* ── Ambient glow — low base, GSAP swells it (Phase 1) ──────────────── */}
       <div
@@ -112,8 +113,8 @@ export default function VideoShowcase() {
         style={{
           opacity: 0,
           backgroundImage: [
-            'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)',
-            'linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)',
+            'linear-gradient(color-mix(in oklab, var(--c-ink) 8%, transparent) 1px, transparent 1px)',
+            'linear-gradient(90deg, color-mix(in oklab, var(--c-ink) 8%, transparent) 1px, transparent 1px)',
           ].join(', '),
           backgroundSize: '88px 88px',
           WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 40%, black 75%, transparent 100%)',
@@ -168,7 +169,7 @@ export default function VideoShowcase() {
               opacity: p.op,
               background: (p as {orange?: boolean}).orange
                 ? `rgba(255,90,31,0.7)`
-                : 'rgba(255,255,255,0.9)',
+                : 'var(--c-ink)',
               animation: `particleFloat ${p.d}s ease-in-out ${p.dl}s infinite`,
             }}
           />
@@ -183,10 +184,10 @@ export default function VideoShowcase() {
           style={{
             maxWidth: 900,
             aspectRatio: '16/9',
-            background: '#050505',
+            background: 'var(--c-bg-elevated)',
             boxShadow: [
-              '0 0 0 1px rgba(255,255,255,0.06)',
-              '0 40px 100px rgba(0,0,0,0.75)',
+              '0 0 0 1px var(--c-line)',
+              '0 40px 100px color-mix(in oklab, var(--c-ink) 18%, transparent)',
               '0 0 80px rgba(255,90,31,0.06)',
             ].join(', '),
             opacity: 0,   // GSAP starts from here
@@ -205,10 +206,10 @@ export default function VideoShowcase() {
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              opacity: 0.032,
+              opacity: 0.05,
               backgroundImage: [
-                'linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)',
-                'linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)',
+                'linear-gradient(var(--c-ink) 1px, transparent 1px)',
+                'linear-gradient(90deg, var(--c-ink) 1px, transparent 1px)',
               ].join(', '),
               backgroundSize: '54px 54px',
             }}
@@ -216,20 +217,20 @@ export default function VideoShowcase() {
 
           {/* Ghost brand identity */}
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-7 pointer-events-none select-none">
-            <div className="flex items-center gap-3" style={{ opacity: 0.10 }}>
-              <div className="w-px h-4" style={{ background: 'rgba(255,255,255,0.5)' }} />
-              <span className="font-mono text-[9.5px] tracking-[0.22em] uppercase text-white">
+            <div className="flex items-center gap-3" style={{ opacity: 0.14 }}>
+              <div className="w-px h-4" style={{ background: 'var(--c-ink)' }} />
+              <span className="font-mono text-[9.5px] tracking-[0.22em] uppercase text-ink">
                 FADO Group — Cross‑Border Commerce Ecosystem
               </span>
-              <div className="w-px h-4" style={{ background: 'rgba(255,255,255,0.5)' }} />
+              <div className="w-px h-4" style={{ background: 'var(--c-ink)' }} />
             </div>
-            <div className="flex items-center gap-12 sm:gap-16" style={{ opacity: 0.08 }}>
+            <div className="flex items-center gap-12 sm:gap-16" style={{ opacity: 0.12 }}>
               {[{ n: '14+', l: 'thương hiệu' }, { n: '9', l: 'quốc gia' }, { n: '15+', l: 'năm' }].map(({ n, l }) => (
                 <div key={l} className="flex flex-col items-center gap-1">
-                  <span className="font-display font-bold text-white" style={{ fontSize: 'clamp(18px, 2.8vw, 38px)' }}>
+                  <span className="font-display font-bold text-ink" style={{ fontSize: 'clamp(18px, 2.8vw, 38px)' }}>
                     {n}
                   </span>
-                  <span className="font-mono text-[8.5px] tracking-widest uppercase text-white/60">{l}</span>
+                  <span className="font-mono text-[8.5px] tracking-widest uppercase text-ink/60">{l}</span>
                 </div>
               ))}
             </div>
@@ -242,23 +243,23 @@ export default function VideoShowcase() {
               className="group flex items-center gap-3 rounded-full transition-all duration-300 hover:scale-105 active:scale-95"
               style={{
                 padding: '14px 28px',
-                background: 'rgba(255,255,255,0.07)',
+                background: 'color-mix(in oklab, var(--c-ink) 7%, transparent)',
                 backdropFilter: 'blur(14px)',
                 WebkitBackdropFilter: 'blur(14px)',
-                border: '1px solid rgba(255,255,255,0.12)',
-                boxShadow: '0 8px 40px rgba(0,0,0,0.6)',
+                border: '1px solid color-mix(in oklab, var(--c-ink) 12%, transparent)',
+                boxShadow: '0 8px 40px color-mix(in oklab, var(--c-ink) 15%, transparent)',
               }}
               aria-label="Phát video giới thiệu FADO Group"
             >
               <span
                 className="flex items-center justify-center rounded-full flex-shrink-0"
-                style={{ width: 34, height: 34, background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.15)' }}
+                style={{ width: 34, height: 34, background: 'color-mix(in oklab, var(--c-ink) 10%, transparent)', border: '1px solid color-mix(in oklab, var(--c-ink) 15%, transparent)' }}
               >
                 <svg width="11" height="13" viewBox="0 0 11 13" fill="none">
-                  <path d="M1 1L10 6.5L1 12V1Z" fill="white" strokeWidth="0.5" strokeLinejoin="round" />
+                  <path d="M1 1L10 6.5L1 12V1Z" fill="var(--c-ink)" strokeWidth="0.5" strokeLinejoin="round" />
                 </svg>
               </span>
-              <span className="font-ui font-medium text-white/88" style={{ fontSize: 'clamp(13px, 1.4vw, 15px)', letterSpacing: '-0.01em' }}>
+              <span className="font-ui font-medium text-ink/88" style={{ fontSize: 'clamp(13px, 1.4vw, 15px)', letterSpacing: '-0.01em' }}>
                 Phát video giới thiệu
               </span>
             </button>

@@ -82,7 +82,16 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${montserrat.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* No-flash: set theme trước khi paint (stored > system > dark) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
+          }}
+        />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}

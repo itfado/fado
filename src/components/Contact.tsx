@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
+import TypingText from './TypingText'
 
 export default async function Contact() {
   const t = await getTranslations('contact')
@@ -28,7 +29,9 @@ export default async function Contact() {
             <br />
             {t('headline2')}
           </h2>
-          <p className="text-text-muted text-[16px] max-w-[560px] mx-auto mb-9">{t('sub')}</p>
+          <p className="text-text-muted text-[16px] max-w-[560px] mx-auto mb-9">
+            <TypingText text={t('sub')} startOnView persistentCaret speed={10} />
+          </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a
               href="mailto:contact@fadogroup.com.au"
@@ -40,8 +43,7 @@ export default async function Contact() {
               href="https://fadogroup.com.au"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 transition-all duration-200"
-              style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.62)' }}
+              className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] border border-line-strong text-text-muted hover:border-accent/50 hover:text-text hover:-translate-y-0.5 transition-all duration-200"
             >
               {t('websiteBtn')}
             </a>

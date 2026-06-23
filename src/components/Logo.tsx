@@ -14,7 +14,8 @@ type LogoProps = {
  * (Chữ "GROUP" tạm bỏ — chỉ thêm lại khi có yêu cầu.)
  */
 export default function Logo({ size = 18, onDark = true, className }: LogoProps) {
-  const ink = onDark ? '#ffffff' : '#0a1f44'
+  // Mặc định bám token theme (trắng ở dark, đậm ở light). onDark={false} ép navy.
+  const ink = onDark === false ? '#0a1f44' : 'var(--c-ink)'
 
   return (
     <span

@@ -36,7 +36,7 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
   }, [target])
 
   return (
-    <span ref={ref} className="font-mono text-[38px] font-medium text-white">
+    <span ref={ref} className="font-mono text-[38px] font-medium text-text">
       {count}
       {suffix && (
         <span className="font-mono text-[24px] text-accent">{suffix}</span>
@@ -49,15 +49,15 @@ export default function Stats() {
   const t = useTranslations('stats')
 
   return (
-    <section className="border-t border-line border-b border-b-line">
+    <section id="stats" className="border-t border-line border-b border-b-line">
       <div className="max-w-container mx-auto grid grid-cols-2 md:grid-cols-4" style={{ padding: '0 24px' }}>
         {stats.map((s, i) => (
           <div
             key={s.labelKey}
             className="flex flex-col items-center gap-2 py-10 px-4 border-line"
             style={{
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.08)' : undefined,
-              borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.08)' : undefined,
+              borderRight: i < 3 ? '1px solid var(--c-line)' : undefined,
+              borderBottom: i < 2 ? '1px solid var(--c-line)' : undefined,
             }}
           >
             <CountUp target={s.value} suffix={s.suffix} />

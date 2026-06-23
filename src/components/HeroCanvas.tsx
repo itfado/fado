@@ -9,13 +9,25 @@ type Particle = {
   vy: number
   r: number
   opacity: number
+  color: string // 'r,g,b'
+  glow: boolean // hạt sáng nổi bật, có quầng
 }
 
-const COUNT = 70
+const COUNT = 92
 const MAX_DIST = 190
-const MOUSE_RADIUS = 220
+const MOUSE_RADIUS = 240
 const MOUSE_FORCE = 0.013   // gentle attraction when idle
 const BASE_SPEED = 0.32
+
+// Bảng màu đa sắc (đồng bộ màu 5 mảng + ember) — kiểu x.ai / Antigravity
+const PALETTE = [
+  '255,90,31',   // ember
+  '59,130,246',  // blue
+  '168,85,247',  // violet
+  '16,185,129',  // green
+  '6,182,212',   // cyan
+  '245,158,11',  // amber
+]
 
 export default function HeroCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -27,6 +39,23 @@ export default function HeroCanvas() {
     if (!ctx) return
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    // Màu "mực" theo theme: trắng ở dark, đậm ở light. Đọc từ token --c-ink.
+    function readInk(): string {
+      const hex = getComputedStyle(document.documentElement).getPropertyValue('--c-ink').trim()
+      let h = hex.replace('#', '')
+      if (h.length === 3) h = h.split('').map((c) => c + c).join('')
+      const r = parseInt(h.slice(0, 2), 16) || 255
+      const g = parseInt(h.slice(2, 4), 16) || 255
+      const b = parseInt(h.slice(4, 6), 16) || 255
+      return `${r},${g},${b}`
+    }
+    let inkRGB = readInk()
+    const themeObs = new MutationObserver(() => {
+      inkRGB = readInk()
+      if (reduceMotion) drawStatic()
+    })
+    themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
 
     let w = 0, h = 0, dpr = 1
     let mx = -9999, my = -9999
@@ -56,6 +85,8 @@ export default function HeroCanvas() {
           vy: (Math.random() - 0.5) * BASE_SPEED,
           r: Math.random() * 1.4 + 0.6,
           opacity: Math.random() * 0.45 + 0.2,
+          color: PALETTE[(Math.random() * PALETTE.length) | 0],
+          glow: Math.random() < 0.3,
         })
       }
     }
@@ -74,14 +105,21 @@ export default function HeroCanvas() {
       mx = -9999; my = -9999
     }
 
+    function drawDot(p: Particle) {
+      if (p.glow) {
+        ctx!.shadowColor = `rgba(${p.color},0.9)`
+        ctx!.shadowBlur = 10
+      }
+      ctx!.beginPath()
+      ctx!.arc(p.x, p.y, p.glow ? p.r * 1.4 : p.r, 0, Math.PI * 2)
+      ctx!.fillStyle = `rgba(${p.color},${p.opacity + (p.glow ? 0.25 : 0)})`
+      ctx!.fill()
+      ctx!.shadowBlur = 0
+    }
+
     function drawStatic() {
       ctx!.clearRect(0, 0, w, h)
-      for (const p of particles) {
-        ctx!.beginPath()
-        ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx!.fillStyle = `rgba(255,255,255,${p.opacity})`
-        ctx!.fill()
-      }
+      for (const p of particles) drawDot(p)
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
@@ -91,7 +129,7 @@ export default function HeroCanvas() {
             ctx!.beginPath()
             ctx!.moveTo(particles[i].x, particles[i].y)
             ctx!.lineTo(particles[j].x, particles[j].y)
-            ctx!.strokeStyle = `rgba(255,255,255,${(1 - dist / MAX_DIST) * 0.08})`
+            ctx!.strokeStyle = `rgba(${inkRGB},${(1 - dist / MAX_DIST) * 0.08})`
             ctx!.lineWidth = 0.6
             ctx!.stroke()
           }
@@ -166,10 +204,7 @@ export default function HeroCanvas() {
         if (p.y < -8) p.y = h + 8
         if (p.y > h + 8) p.y = -8
 
-        ctx!.beginPath()
-        ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx!.fillStyle = `rgba(255,255,255,${p.opacity})`
-        ctx!.fill()
+        drawDot(p)
       }
 
       // Connection lines
@@ -183,7 +218,7 @@ export default function HeroCanvas() {
             ctx!.beginPath()
             ctx!.moveTo(ax, ay)
             ctx!.lineTo(bx, by)
-            ctx!.strokeStyle = `rgba(255,255,255,${(1 - dist / MAX_DIST) * 0.11})`
+            ctx!.strokeStyle = `rgba(${inkRGB},${(1 - dist / MAX_DIST) * 0.11})`
             ctx!.lineWidth = 0.6
             ctx!.stroke()
           }
@@ -209,6 +244,7 @@ export default function HeroCanvas() {
 
     return () => {
       cancelAnimationFrame(rafId)
+      themeObs.disconnect()
       hero.removeEventListener('mousemove', onMouseMove)
       hero.removeEventListener('mouseleave', onMouseLeave)
     }

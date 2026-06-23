@@ -5,18 +5,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#000000',
-        'bg-elevated': '#0a0a0a',
-        'bg-card': '#121212',
-        'bg-card-hover': '#1a1a1a',
-        line: 'rgba(255,255,255,0.10)',
-        'line-strong': 'rgba(255,255,255,0.22)',
-        text: '#ffffff',
-        'text-muted': '#a3a3a3',
-        'text-faint': '#5c5c5c',
-        // Màu nhấn ember — điểm xuyết, chủ đạo vẫn đen-trắng
-        accent: '#FF5A1F',
-        'accent-soft': '#FF7A47',
+        // Token ngữ nghĩa — giá trị thực nằm trong globals.css, đổi theo theme (light/dark)
+        bg: 'var(--c-bg)',
+        'bg-elevated': 'var(--c-bg-elevated)',
+        'bg-card': 'var(--c-bg-card)',
+        'bg-card-hover': 'var(--c-bg-card-hover)',
+        line: 'var(--c-line)',
+        'line-strong': 'var(--c-line-strong)',
+        text: 'var(--c-text)',
+        'text-muted': 'var(--c-text-muted)',
+        'text-faint': 'var(--c-text-faint)',
+        // Màu nhấn ember — điểm xuyết, giữ nguyên trên cả 2 theme
+        accent: 'var(--c-accent)',
+        'accent-soft': 'var(--c-accent-soft)',
+        // Token "mực" động: đậm trên nền sáng, trắng trên nền tối — thay cho rgba(255,255,255,…) cứng
+        ink: 'var(--c-ink)',
       },
       fontFamily: {
         display: ['var(--font-montserrat)', 'sans-serif'],

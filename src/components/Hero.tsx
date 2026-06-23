@@ -1,23 +1,21 @@
 import { getTranslations } from 'next-intl/server'
 import HeroCanvas from './HeroCanvas'
+import TypingText from './TypingText'
 
 export default async function Hero() {
   const t = await getTranslations('hero')
 
   return (
     <section
+      id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden"
       style={{ padding: '140px 24px 80px' }}
     >
       <HeroCanvas />
 
-      {/* Radial ember glow behind hero */}
+      {/* Aurora gradient đa sắc — kiểu x.ai / Antigravity, dịch chuyển chậm */}
       <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 55% at 50% 38%, rgba(255,90,31,0.22), transparent 70%)',
-        }}
+        className="absolute inset-0 pointer-events-none z-0 hero-aurora"
         aria-hidden="true"
       />
 
@@ -37,7 +35,7 @@ export default async function Hero() {
           className="inline-flex items-center gap-2 mb-9"
           style={{ animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both', animationDelay: '0.05s' }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-white/40 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-accent/70 animate-pulse" />
           <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-text-faint">
             {t('label')}
           </p>
@@ -79,7 +77,7 @@ export default async function Hero() {
             animationDelay: '0.40s',
           }}
         >
-          {t('sub')}
+          <TypingText text={t('sub')} startDelay={700} speed={8} persistentCaret />
         </p>
 
         {/* CTAs */}
@@ -95,8 +93,7 @@ export default async function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:-translate-y-0.5 transition-all duration-200"
-            style={{ border: '1px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.62)' }}
+            className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] border border-line-strong text-text-muted hover:border-accent/50 hover:text-text hover:-translate-y-0.5 transition-all duration-200"
           >
             {t('cta2')}
           </a>
@@ -108,7 +105,8 @@ export default async function Hero() {
         className="absolute bottom-0 left-0 right-0 pointer-events-none z-20"
         style={{
           height: '40%',
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 50%, #000 100%)',
+          background:
+            'linear-gradient(to bottom, transparent 0%, color-mix(in oklab, var(--c-bg) 60%, transparent) 50%, var(--c-bg) 100%)',
         }}
         aria-hidden="true"
       />
@@ -119,12 +117,12 @@ export default async function Hero() {
         aria-hidden="true"
         style={{ animation: 'heroFade 1s ease both', animationDelay: '0.9s' }}
       >
-        <div className="w-px h-[28px] overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+        <div className="w-px h-[28px] overflow-hidden" style={{ background: 'var(--c-line-strong)' }}>
           <div
             className="w-full"
             style={{
               height: '100%',
-              background: 'linear-gradient(white, transparent)',
+              background: 'linear-gradient(var(--c-ink), transparent)',
               animation: 'cueDrop 2.4s ease-in-out infinite',
               position: 'relative',
               top: '-100%',

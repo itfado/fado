@@ -1,5 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
+import Globe from './Globe'
+import TypingText from './TypingText'
 import { officeGroups } from '@/data/offices'
 
 export default async function GlobalPresence() {
@@ -30,14 +32,20 @@ export default async function GlobalPresence() {
           </h2>
         </FadeIn>
         <FadeIn delay={0.12}>
-          <p className="text-text-muted text-[16px] max-w-[560px]">{t('sub')}</p>
+          <p className="text-text-muted text-[16px] max-w-[560px]">
+            <TypingText text={t('sub')} startOnView persistentCaret speed={10} />
+          </p>
         </FadeIn>
       </div>
 
-      {/* Office grid */}
-      <FadeIn delay={0.18}>
-        <div className="max-w-container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-          {officeGroups.map((group) => (
+      {/* Globe + Office grid */}
+      <div className="max-w-container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <FadeIn>
+          <Globe />
+        </FadeIn>
+        <FadeIn delay={0.12}>
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-8">
+            {officeGroups.map((group) => (
             <div key={group.titleKey}>
               <h4 className="font-mono text-[13px] tracking-[0.08em] uppercase text-accent font-medium mb-4">
                 {tOffices(group.titleKey as Parameters<typeof tOffices>[0])}
@@ -54,9 +62,10 @@ export default async function GlobalPresence() {
                 ))}
               </ul>
             </div>
-          ))}
-        </div>
-      </FadeIn>
+            ))}
+          </div>
+        </FadeIn>
+      </div>
     </section>
   )
 }

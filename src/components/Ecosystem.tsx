@@ -2,7 +2,9 @@ import { getTranslations } from 'next-intl/server'
 import FadeIn from './FadeIn'
 import { brands, segments } from '@/data/brands'
 import { BrandGrid, BrandItem } from './BrandCardGrid'
+import BrandLogo from './BrandLogo'
 import EcosystemProgress from './EcosystemProgress'
+import TypingText from './TypingText'
 
 const countryKeyMap: Record<string, 'countryVN' | 'countryAU'> = {
   vn: 'countryVN',
@@ -35,7 +37,9 @@ export default async function Ecosystem() {
           </h2>
         </FadeIn>
         <FadeIn delay={0.12}>
-          <p className="text-text-muted text-[16px] max-w-[580px]">{t('sub')}</p>
+          <p className="text-text-muted text-[16px] max-w-[580px]">
+            <TypingText text={t('sub')} startOnView persistentCaret speed={10} />
+          </p>
         </FadeIn>
       </div>
 
@@ -79,14 +83,13 @@ export default async function Ecosystem() {
                           href={brand.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group flex flex-col gap-2 p-5 bg-bg-card hover:bg-bg-card-hover transition-colors duration-200 h-full"
+                          className="group flex flex-col gap-3 p-5 bg-bg-card hover:bg-bg-card-hover transition-colors duration-200 h-full"
                         >
+                          <span className="block h-0.5 w-8 rounded-full transition-all duration-300 group-hover:w-12" style={{ background: accent, opacity: 0.75 }} />
                           <div className="flex items-start justify-between gap-3">
-                            <span className="font-ui font-semibold text-[14.5px] group-hover:text-white transition-colors">
-                              {brand.name}
-                            </span>
+                            <BrandLogo slug={brand.slug} name={brand.name} />
                             {brand.country && (
-                              <span className="font-mono text-[11px] text-text-faint bg-white/5 px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">
+                              <span className="font-mono text-[11px] text-text-faint bg-ink/5 px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">
                                 {t(countryKeyMap[brand.country])}
                               </span>
                             )}
@@ -99,11 +102,12 @@ export default async function Ecosystem() {
                           </span>
                         </a>
                       ) : (
-                        <div className="flex flex-col gap-2 p-5 bg-bg-card h-full">
+                        <div className="flex flex-col gap-3 p-5 bg-bg-card h-full">
+                          <span className="block h-0.5 w-8 rounded-full" style={{ background: accent, opacity: 0.5 }} />
                           <div className="flex items-start justify-between gap-3">
-                            <span className="font-ui font-semibold text-[14.5px]">{brand.name}</span>
+                            <BrandLogo slug={brand.slug} name={brand.name} />
                             {brand.country && (
-                              <span className="font-mono text-[11px] text-text-faint bg-white/5 px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">
+                              <span className="font-mono text-[11px] text-text-faint bg-ink/5 px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5">
                                 {t(countryKeyMap[brand.country])}
                               </span>
                             )}

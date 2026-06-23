@@ -20,30 +20,30 @@ export default async function Footer() {
             <h5 className="text-[11.5px] tracking-[0.08em] uppercase text-text-faint font-semibold mb-1">
               {t('col1Title')}
             </h5>
-            <a href="#about" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">{t('col1Link1')}</a>
-            <a href="#ecosystem" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">{t('col1Link2')}</a>
-            <a href="#global" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">{t('col1Link3')}</a>
+            <a href="#about" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">{t('col1Link1')}</a>
+            <a href="#ecosystem" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">{t('col1Link2')}</a>
+            <a href="#global" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">{t('col1Link3')}</a>
           </div>
           <div className="flex flex-col gap-3">
             <h5 className="text-[11.5px] tracking-[0.08em] uppercase text-text-faint font-semibold mb-1">
               {t('col2Title')}
             </h5>
-            <a href="#contact" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">{t('col2Link1')}</a>
-            <a href="#contact" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">{t('col2Link2')}</a>
+            <a href="#contact" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">{t('col2Link1')}</a>
+            <a href="#contact" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">{t('col2Link2')}</a>
           </div>
           <div className="flex flex-col gap-3">
             <h5 className="text-[11.5px] tracking-[0.08em] uppercase text-text-faint font-semibold mb-1">
               {t('col3Title')}
             </h5>
-            <a href="/tuyen-dung" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">{t('col3Link1')}</a>
-            <a href="/tuyen-dung" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">{t('col3Link2')}</a>
+            <a href="/tuyen-dung" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">{t('col3Link1')}</a>
+            <a href="/tuyen-dung" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">{t('col3Link2')}</a>
           </div>
           <div className="flex flex-col gap-3">
             <h5 className="text-[11.5px] tracking-[0.08em] uppercase text-text-faint font-semibold mb-1">
               {t('col4Title')}
             </h5>
-            <a href="mailto:contact@fadogroup.com.au" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200 break-all">contact@fadogroup.com.au</a>
-            <a href="https://fadogroup.com.au" className="text-[14px] text-text-muted hover:text-white transition-colors duration-200">fadogroup.com.au</a>
+            <a href="mailto:contact@fadogroup.com.au" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200 break-all">contact@fadogroup.com.au</a>
+            <a href="https://fadogroup.com.au" className="text-[14px] text-text-muted hover:text-text transition-colors duration-200">fadogroup.com.au</a>
           </div>
         </div>
       </div>

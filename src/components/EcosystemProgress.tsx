@@ -48,7 +48,7 @@ export default function EcosystemProgress() {
                 height: 22,
                 background: i <= active
                   ? `linear-gradient(to bottom, ${segments[i - 1].color}55, ${seg.color}55)`
-                  : 'rgba(255,255,255,0.08)',
+                  : 'var(--c-line)',
                 transition: 'background 0.5s',
               }}
             />
@@ -65,7 +65,7 @@ export default function EcosystemProgress() {
                 borderRadius: '50%',
                 background: i === active
                   ? seg.color
-                  : i < active ? `${seg.color}50` : 'rgba(255,255,255,0.18)',
+                  : i < active ? `${seg.color}50` : 'var(--c-line-strong)',
                 boxShadow: i === active ? `0 0 10px ${seg.color}70` : 'none',
                 transition: 'all 0.35s cubic-bezier(0.16,1,0.3,1)',
                 flexShrink: 0,
