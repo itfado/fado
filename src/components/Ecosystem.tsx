@@ -75,7 +75,7 @@ export default async function Ecosystem() {
                 </header>
 
                 {/* Brand cards — stagger in when segment enters viewport */}
-                <BrandGrid>
+                <BrandGrid count={segBrands.length}>
                   {segBrands.map((brand) => (
                     <BrandItem key={brand.slug}>
                       {brand.url !== '#' ? (

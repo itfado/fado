@@ -12,7 +12,8 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as [number,number,number,number] } },
 }
 
-export function BrandGrid({ children }: { children: React.ReactNode }) {
+export function BrandGrid({ children, count }: { children: React.ReactNode; count: number }) {
+  const cols = Math.max(Math.min(count, 4), 2)
   return (
     <motion.ul
       variants={container}
@@ -20,7 +21,7 @@ export function BrandGrid({ children }: { children: React.ReactNode }) {
       whileInView="show"
       viewport={{ once: true, margin: '-60px' }}
       className="grid gap-px p-px"
-      style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))' }}
+      style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
     >
       {children}
     </motion.ul>

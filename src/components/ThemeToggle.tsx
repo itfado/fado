@@ -9,6 +9,12 @@ export default function ThemeToggle({ className = '' }: { className?: string }) 
   const [theme, setTheme] = useState<Theme | null>(null)
 
   useEffect(() => {
+    // Force light theme on ecosys subdomain — no user override
+    if (window.location.hostname === 'ecosys.fadoai.com') {
+      document.documentElement.setAttribute('data-theme', 'light')
+      setTheme('light')
+      return
+    }
     // Re-apply theme on every mount (locale navigation wipes data-theme from DOM)
     let current: Theme = 'dark'
     try {
