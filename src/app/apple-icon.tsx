@@ -13,10 +13,8 @@ export default function AppleIcon() {
           height: 180,
           background: '#0a0a0a',
           display: 'flex',
-          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 0,
         }}
       >
         <div
@@ -27,20 +25,11 @@ export default function AppleIcon() {
             letterSpacing: 9,
             fontFamily: 'Arial Black, Arial, sans-serif',
             lineHeight: 1,
-            marginBottom: 12,
             paddingLeft: 9,
           }}
         >
           FADO
         </div>
-        <div
-          style={{
-            width: 28,
-            height: 2,
-            background: '#FF5A1F',
-            borderRadius: 1,
-          }}
-        />
       </div>
     ),
     { ...size }
