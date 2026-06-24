@@ -11,13 +11,22 @@ export default function proxy(request: NextRequest) {
   const isEcoSys = host === ECOSYS_HOST || host.startsWith(`${ECOSYS_HOST}:`)
 
   if (isEcoSys) {
-    // Block Vietnamese locale — redirect /vi/... to /...
     const { pathname } = request.nextUrl
+    // Strip /vi prefix — hard redirect so URL bar stays clean
     if (pathname.startsWith('/vi')) {
       const url = request.nextUrl.clone()
       url.pathname = pathname.replace(/^\/vi/, '') || '/'
       return NextResponse.redirect(url)
     }
+    // Force English internally — prevents next-intl from detecting
+    // Vietnamese browser language and redirecting to /vi/, which would
+    // loop back here and cause an infinite redirect chain.
+    if (!pathname.startsWith('/en')) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/en' + (pathname === '/' ? '' : pathname)
+      return NextResponse.rewrite(url)
+    }
+    return NextResponse.next()
   }
 
   return handleI18nRouting(request)
