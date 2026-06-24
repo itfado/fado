@@ -103,6 +103,20 @@ export default function HeroCanvas() {
       mx = -9999; my = -9999
     }
 
+    function onTouchMove(e: TouchEvent) {
+      const hero = canvas!.parentElement!
+      const rect = hero.getBoundingClientRect()
+      const t = e.touches[0]
+      pmx = mx; pmy = my
+      mx = t.clientX - rect.left
+      my = t.clientY - rect.top
+    }
+
+    function onTouchEnd() {
+      pmx = -9999; pmy = -9999
+      mx = -9999; my = -9999
+    }
+
     function drawDot(p: Particle) {
       if (p.glow) {
         ctx!.shadowColor = `rgba(${p.color},0.7)`
@@ -229,6 +243,9 @@ export default function HeroCanvas() {
     const hero = canvas!.parentElement!
     hero.addEventListener('mousemove', onMouseMove, { passive: true })
     hero.addEventListener('mouseleave', onMouseLeave, { passive: true })
+    hero.addEventListener('touchmove', onTouchMove, { passive: true })
+    hero.addEventListener('touchend', onTouchEnd, { passive: true })
+    hero.addEventListener('touchcancel', onTouchEnd, { passive: true })
     window.addEventListener('resize', () => { resize(); init() }, { passive: true })
 
     resize()
@@ -245,6 +262,9 @@ export default function HeroCanvas() {
       themeObs.disconnect()
       hero.removeEventListener('mousemove', onMouseMove)
       hero.removeEventListener('mouseleave', onMouseLeave)
+      hero.removeEventListener('touchmove', onTouchMove)
+      hero.removeEventListener('touchend', onTouchEnd)
+      hero.removeEventListener('touchcancel', onTouchEnd)
     }
   }, [])
 
