@@ -45,7 +45,6 @@ export default function Globe() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let ink = inkRGB()
     const obs = new MutationObserver(() => (ink = inkRGB()))
     obs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
@@ -84,7 +83,7 @@ export default function Globe() {
 
     function draw(dt: number) {
       ctx!.clearRect(0, 0, size, size)
-      if (!reduce) rot += dt * 0.16
+      rot += dt * 0.16
 
       // Quầng sáng ngoài → cầu "nổi"
       const outer = ctx!.createRadialGradient(cx, cy, R * 0.7, cx, cy, R * 1.35)
@@ -183,8 +182,7 @@ export default function Globe() {
       if (document.visibilityState === 'visible') draw(dt)
       raf = requestAnimationFrame(frame)
     }
-    if (reduce) draw(0)
-    else raf = requestAnimationFrame(frame)
+    raf = requestAnimationFrame(frame)
 
     return () => {
       cancelAnimationFrame(raf)
