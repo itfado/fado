@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getTranslations, getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
+import { headers } from 'next/headers'
 import { routing } from '@/i18n/routing'
 import '../globals.css'
 
@@ -30,9 +31,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'metadata' })
+  const headersList = await headers()
+  const host = headersList.get('host') || 'ecosys.fadoai.com'
+  const metadataBase = new URL(`https://${host}`)
 
   return {
-    metadataBase: new URL('https://fadogroup.com.au'),
+    metadataBase,
     title: {
       default: t('title'),
       template: '%s | FADO Group',
