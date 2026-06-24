@@ -103,57 +103,6 @@ export default async function Image() {
           }}
         />
 
-        {/* Corner bracket — top left */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 44,
-            left: 52,
-            width: 36,
-            height: 36,
-            borderTop: '2px solid rgba(255,90,31,0.45)',
-            borderLeft: '2px solid rgba(255,90,31,0.45)',
-          }}
-        />
-
-        {/* Corner bracket — top right */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 44,
-            right: 52,
-            width: 36,
-            height: 36,
-            borderTop: '2px solid rgba(255,90,31,0.45)',
-            borderRight: '2px solid rgba(255,90,31,0.45)',
-          }}
-        />
-
-        {/* Corner bracket — bottom left */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 44,
-            left: 52,
-            width: 36,
-            height: 36,
-            borderBottom: '2px solid rgba(255,90,31,0.45)',
-            borderLeft: '2px solid rgba(255,90,31,0.45)',
-          }}
-        />
-
-        {/* Corner bracket — bottom right */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 44,
-            right: 52,
-            width: 36,
-            height: 36,
-            borderBottom: '2px solid rgba(255,90,31,0.45)',
-            borderRight: '2px solid rgba(255,90,31,0.45)',
-          }}
-        />
 
         {/* Center content */}
         <div
@@ -179,14 +128,13 @@ export default async function Image() {
             FADO
           </div>
 
-          {/* Accent line — orange gradient */}
+          {/* Accent line — subtle white */}
           <div
             style={{
-              width: 64,
-              height: 3,
-              background: 'linear-gradient(90deg, #ff5a1f 0%, #ffad8a 100%)',
-              borderRadius: 2,
-              marginBottom: 32,
+              width: 48,
+              height: 1,
+              background: 'rgba(255,255,255,0.18)',
+              marginBottom: 28,
             }}
           />
 
