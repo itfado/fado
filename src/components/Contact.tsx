@@ -7,7 +7,7 @@ export default async function Contact() {
   const t = await getTranslations('contact')
 
   return (
-    <section id="contact" className="text-center relative overflow-hidden" style={{ padding: '120px 24px' }}>
+    <section id="contact" className="text-center relative overflow-hidden py-16 md:py-[120px] px-6">
       {/* Subtle ember glow */}
       <div
         className="absolute inset-0 pointer-events-none"

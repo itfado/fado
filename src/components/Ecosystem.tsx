@@ -17,7 +17,7 @@ export default async function Ecosystem() {
   const tBrands = await getTranslations('brands')
 
   return (
-    <section id="ecosystem" style={{ padding: '120px 24px' }}>
+    <section id="ecosystem" className="py-16 md:py-[120px] px-6">
       <EcosystemProgress />
       {/* Section header */}
       <div className="max-w-container mx-auto mb-16">

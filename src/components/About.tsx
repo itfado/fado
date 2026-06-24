@@ -11,7 +11,7 @@ export default async function About() {
   ]
 
   return (
-    <section id="about" style={{ padding: '120px 24px' }}>
+    <section id="about" className="py-16 md:py-[120px] px-6">
       <div className="max-w-container mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16">
         {/* Text side */}
         <div>

@@ -118,7 +118,7 @@ export default function LatestBlogs() {
   }
 
   return (
-    <section id="news" style={{ padding: '120px 24px' }}>
+    <section id="news" className="py-16 md:py-[120px] px-6">
       <div className="max-w-container mx-auto">
 
         {/* Header */}

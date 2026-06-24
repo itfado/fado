@@ -79,13 +79,13 @@ export default function Nav() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden flex flex-col gap-[5px] p-1.5"
+          className="md:hidden flex flex-col gap-[5px] p-3 -mr-3"
           onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? t('closeMenu') : t('openMenu')}
         >
-          <span className="w-[22px] h-0.5 bg-ink block" />
-          <span className="w-[22px] h-0.5 bg-ink block" />
-          <span className="w-[22px] h-0.5 bg-ink block" />
+          <span className={`w-[22px] h-0.5 bg-ink block transition-all duration-200 origin-center ${mobileOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+          <span className={`w-[22px] h-0.5 bg-ink block transition-all duration-200 ${mobileOpen ? 'opacity-0' : ''}`} />
+          <span className={`w-[22px] h-0.5 bg-ink block transition-all duration-200 origin-center ${mobileOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
         </button>
       </div>
 

@@ -54,7 +54,7 @@ export default function Stats() {
         {stats.map((s, i) => (
           <div
             key={s.labelKey}
-            className="flex flex-col items-center gap-2 py-10 px-4 border-line"
+            className="stat-cell flex flex-col items-center gap-2 py-10 px-4 border-line"
             style={{
               borderRight: i < 3 ? '1px solid var(--c-line)' : undefined,
               borderBottom: i < 2 ? '1px solid var(--c-line)' : undefined,

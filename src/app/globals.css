@@ -167,3 +167,19 @@
 .animate-pulse {
   animation: pulse 2.4s ease-in-out infinite;
 }
+
+/* Brand grid: 2 cols on mobile, dynamic count (--brand-cols) on sm+ */
+.brand-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .brand-grid {
+    grid-template-columns: repeat(var(--brand-cols, 2), minmax(0, 1fr));
+  }
+}
+
+/* Stats grid borders — correct for 2-col mobile / 4-col desktop */
+@media (max-width: 767px) {
+  .stat-cell:nth-child(even) { border-right: none !important; }
+  .stat-cell:nth-child(n+3) { border-bottom: none !important; }
+}

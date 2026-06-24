@@ -20,8 +20,8 @@ export function BrandGrid({ children, count }: { children: React.ReactNode; coun
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: '-60px' }}
-      className="grid gap-px p-px"
-      style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
+      className="grid gap-px p-px brand-grid"
+      style={{ '--brand-cols': cols } as React.CSSProperties}
     >
       {children}
     </motion.ul>

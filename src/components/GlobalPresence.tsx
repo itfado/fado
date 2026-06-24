@@ -11,8 +11,7 @@ export default async function GlobalPresence() {
   return (
     <section
       id="global"
-      className="bg-bg-elevated border-t border-line border-b border-b-line"
-      style={{ padding: '120px 24px' }}
+      className="bg-bg-elevated border-t border-line border-b border-b-line py-16 md:py-[120px] px-6"
     >
       {/* Section header */}
       <div className="max-w-container mx-auto mb-16">

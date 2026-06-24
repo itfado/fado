@@ -9,7 +9,7 @@ export default async function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden"
-      style={{ padding: '140px 24px 80px' }}
+      style={{ padding: 'clamp(100px, 18vw, 140px) 24px clamp(60px, 10vw, 80px)' }}
     >
       <HeroCanvas />
 
