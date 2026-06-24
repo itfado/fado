@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import HeroCanvas from './HeroCanvas'
-import TypingText from './TypingText'
+import HeroInner from './HeroInner'
 
 export default async function Hero() {
   const t = await getTranslations('hero')
@@ -13,13 +13,13 @@ export default async function Hero() {
     >
       <HeroCanvas />
 
-      {/* Aurora gradient đa sắc — kiểu x.ai / Antigravity, dịch chuyển chậm */}
+      {/* Aurora gradient */}
       <div
         className="absolute inset-0 pointer-events-none z-0 hero-aurora"
         aria-hidden="true"
       />
 
-      {/* Subtle grain overlay */}
+      {/* Grain overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-0 opacity-[0.35]"
         style={{
@@ -29,78 +29,16 @@ export default async function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-[920px] mx-auto">
-        {/* Label */}
-        <div
-          className="inline-flex items-center gap-2 mb-9"
-          style={{ animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both', animationDelay: '0.05s' }}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-accent/70 animate-pulse" />
-          <p className="font-mono text-[12px] tracking-[0.16em] uppercase text-text-faint">
-            {t('label')}
-          </p>
-        </div>
+      <HeroInner
+        label={t('label')}
+        headline1={t('headline1')}
+        headline2={t('headline2')}
+        sub={t('sub')}
+        cta1={t('cta1')}
+        cta2={t('cta2')}
+      />
 
-        {/* Headline — each line animates independently */}
-        <h1
-          className="font-display font-bold leading-[1.06] mb-10"
-          style={{ fontSize: 'clamp(40px, 4.8vw, 66px)', letterSpacing: '-0.025em', wordBreak: 'keep-all' }}
-        >
-          <span
-            style={{
-              display: 'block',
-              animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both',
-              animationDelay: '0.18s',
-            }}
-          >
-            {t('headline1')}
-          </span>
-          <span
-            className="italic text-accent"
-            style={{
-              display: 'block',
-              animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both',
-              animationDelay: '0.28s',
-            }}
-          >
-            {t('headline2')}
-          </span>
-        </h1>
-
-        {/* Sub */}
-        <p
-          className="text-text-muted mx-auto mb-12 leading-[1.75]"
-          style={{
-            fontSize: 'clamp(15px, 1.6vw, 17px)',
-            maxWidth: '600px',
-            animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both',
-            animationDelay: '0.40s',
-          }}
-        >
-          <TypingText text={t('sub')} startDelay={700} speed={8} persistentCaret />
-        </p>
-
-        {/* CTAs */}
-        <div
-          className="flex gap-3.5 justify-center flex-wrap"
-          style={{ animation: 'heroIn 0.9s cubic-bezier(0.16,1,0.3,1) both', animationDelay: '0.52s' }}
-        >
-          <a
-            href="#ecosystem"
-            className="inline-flex items-center justify-center border border-accent text-accent font-semibold px-7 py-3.5 rounded-full text-[14.5px] hover:bg-accent hover:text-white hover:-translate-y-0.5 transition-all duration-200"
-          >
-            {t('cta1')}
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center font-semibold px-7 py-3.5 rounded-full text-[14.5px] border border-ink/30 text-text hover:border-accent hover:text-accent hover:-translate-y-0.5 transition-all duration-200"
-          >
-            {t('cta2')}
-          </a>
-        </div>
-      </div>
-
-      {/* Bottom fade — dissolves hero content before VideoShowcase enters */}
+      {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none z-20"
         style={{

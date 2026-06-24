@@ -31,10 +31,10 @@ export default async function About() {
             </h2>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <p className="text-text-muted text-[15.5px] mb-[18px]">{t('para1')}</p>
+            <p className="text-text-muted text-[15.5px] mb-[18px] leading-[1.75]">{t('para1')}</p>
           </FadeIn>
           <FadeIn delay={0.18}>
-            <p className="text-text-muted text-[15.5px] mb-7">{t('para2')}</p>
+            <p className="text-text-muted text-[15.5px] mb-7 leading-[1.75]">{t('para2')}</p>
           </FadeIn>
           <FadeIn delay={0.24}>
             <a

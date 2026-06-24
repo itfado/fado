@@ -7,6 +7,7 @@ import Script from 'next/script'
 import { headers } from 'next/headers'
 import { routing } from '@/i18n/routing'
 import '../globals.css'
+import LenisProvider from '@/components/LenisProvider'
 
 const inter = Inter({
   subsets: ['latin', 'vietnamese'],
@@ -77,7 +78,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${inter.variable} ${montserrat.variable}`}
       suppressHydrationWarning
     >
-      <head>
+      <body suppressHydrationWarning>
         <Script
           id="theme-init"
           strategy="beforeInteractive"
@@ -85,10 +86,10 @@ export default async function LocaleLayout({ children, params }: Props) {
             __html: `(function(){if(window.location.hostname==='ecosys.fadoai.com'){document.documentElement.setAttribute('data-theme','light');return;}try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
           }}
         />
-      </head>
-      <body suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <LenisProvider>
+            {children}
+          </LenisProvider>
         </NextIntlClientProvider>
       </body>
     </html>

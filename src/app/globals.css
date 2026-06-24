@@ -61,7 +61,7 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth — Lenis handles smooth scrolling */
   }
 
   body {
@@ -182,4 +182,32 @@
 @media (max-width: 767px) {
   .stat-cell:nth-child(even) { border-right: none !important; }
   .stat-cell:nth-child(n+3) { border-bottom: none !important; }
+}
+
+/* ─── Brand marquee ──────────────────────────────────────────────────────── */
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Brand card hover depth (Tier 3) ───────────────────────────────────── */
+.brand-card-link {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.brand-card-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(255, 90, 31, 0.12);
+}
+
+/* ─── Section heading reveal — overflow clip container ───────────────────── */
+.reveal-clip {
+  overflow: hidden;
 }

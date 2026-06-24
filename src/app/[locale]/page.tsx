@@ -8,6 +8,7 @@ import Ecosystem from '@/components/Ecosystem'
 import GlobalPresence from '@/components/GlobalPresence'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import BrandMarquee from '@/components/BrandMarquee'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <TransitionCanvas />
       <Nav />
       <Hero />
+      <BrandMarquee />
       <Stats />
       <About />
       <Ecosystem />

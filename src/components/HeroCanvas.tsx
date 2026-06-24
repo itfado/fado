@@ -13,10 +13,8 @@ type Particle = {
   glow: boolean // hạt sáng nổi bật, có quầng
 }
 
-const COUNT = 92
 const MAX_DIST = 190
 const MOUSE_RADIUS = 240
-const MOUSE_FORCE = 0.013   // gentle attraction when idle
 const BASE_SPEED = 0.32
 
 // Tông cam chủ đạo — nhiều sắc độ ember để vẫn có chiều sâu
@@ -59,6 +57,7 @@ export default function HeroCanvas() {
     let mx = -9999, my = -9999
     let pmx = -9999, pmy = -9999   // previous mouse pos for velocity calc
     let rafId = 0
+    let maxDist = MAX_DIST
     const particles: Particle[] = []
 
     function resize() {
@@ -74,8 +73,11 @@ export default function HeroCanvas() {
     }
 
     function init() {
+      const isMobile = w < 768
+      const count = isMobile ? 38 : 92
+      maxDist = isMobile ? 120 : MAX_DIST
       particles.length = 0
-      for (let i = 0; i < COUNT; i++) {
+      for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,
@@ -137,11 +139,11 @@ export default function HeroCanvas() {
           const dx = particles[i].x - particles[j].x
           const dy = particles[i].y - particles[j].y
           const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < MAX_DIST) {
+          if (dist < maxDist) {
             ctx!.beginPath()
             ctx!.moveTo(particles[i].x, particles[i].y)
             ctx!.lineTo(particles[j].x, particles[j].y)
-            ctx!.strokeStyle = `rgba(${inkRGB},${(1 - dist / MAX_DIST) * 0.08})`
+            ctx!.strokeStyle = `rgba(${inkRGB},${(1 - dist / maxDist) * 0.08})`
             ctx!.lineWidth = 0.6
             ctx!.stroke()
           }
@@ -173,18 +175,21 @@ export default function HeroCanvas() {
         if (dist2 < MOUSE_RADIUS * MOUSE_RADIUS && mx > -9000) {
           const dist = Math.sqrt(dist2)
           const proximity = 1 - dist / MOUSE_RADIUS
+          const ndx = dx / dist  // unit vector toward cursor
+          const ndy = dy / dist
 
           if (mouseSpeed > 4) {
             // Fast sweep — carry particles along with cursor direction
             p.vx += mouseVx * proximity * 0.22
             p.vy += mouseVy * proximity * 0.22
           } else {
-            // Idle / slow — gentle attraction toward cursor
-            if (dist > 0) {
-              const force = proximity * MOUSE_FORCE
-              p.vx += (dx / dist) * force
-              p.vy += (dy / dist) * force
-            }
+            // Orbital swirl: tangential force (perpendicular) + gentle repulsion
+            // Tangential (-ndy, ndx) makes particles orbit counter-clockwise
+            // Repulsion prevents bunching at the cursor point
+            const swirl  = proximity * 0.030
+            const repel  = proximity * 0.007
+            p.vx += (-ndy) * swirl - ndx * repel
+            p.vy +=  (ndx) * swirl - ndy * repel
           }
         }
 
@@ -226,11 +231,11 @@ export default function HeroCanvas() {
           const bx = particles[j].x, by = particles[j].y
           const dx = ax - bx, dy = ay - by
           const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < MAX_DIST) {
+          if (dist < maxDist) {
             ctx!.beginPath()
             ctx!.moveTo(ax, ay)
             ctx!.lineTo(bx, by)
-            ctx!.strokeStyle = `rgba(${inkRGB},${(1 - dist / MAX_DIST) * 0.11})`
+            ctx!.strokeStyle = `rgba(${inkRGB},${(1 - dist / maxDist) * 0.11})`
             ctx!.lineWidth = 0.6
             ctx!.stroke()
           }
