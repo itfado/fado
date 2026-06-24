@@ -8,7 +8,6 @@ export const contentType = 'image/png'
 
 async function loadMontserrat() {
   try {
-    // Fetch Montserrat ExtraBold (800) from Google Fonts API
     const css = await fetch(
       'https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap',
       { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; NextJS OG)' } }
@@ -102,7 +101,6 @@ export default async function Image() {
               'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%)',
           }}
         />
-
 
         {/* Center content */}
         <div
